@@ -1,0 +1,465 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F717B8012756D003005D1DFD /* TinderMyRestaurantApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F717B8002756D003005D1DFD /* TinderMyRestaurantApp.swift */; };
+		F717B8032756D003005D1DFD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F717B8022756D003005D1DFD /* ContentView.swift */; };
+		F717B8052756D004005D1DFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F717B8042756D004005D1DFD /* Assets.xcassets */; };
+		F717B8082756D004005D1DFD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F717B8072756D004005D1DFD /* Preview Assets.xcassets */; };
+		F717B8112756D04D005D1DFD /* RestaurantCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F717B8102756D04D005D1DFD /* RestaurantCard.swift */; };
+		F717B8132756D129005D1DFD /* types.swift in Sources */ = {isa = PBXBuildFile; fileRef = F717B8122756D129005D1DFD /* types.swift */; };
+		F7231F3F27587F34007B27B0 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7231F3E27587F34007B27B0 /* Launch Screen.storyboard */; };
+		F7231F432759653C007B27B0 /* SingleRestaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7231F422759653C007B27B0 /* SingleRestaurant.swift */; };
+		F7231F4627598F84007B27B0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F7231F4527598F84007B27B0 /* FirebaseAuth */; };
+		F7231F4827598F84007B27B0 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = F7231F4727598F84007B27B0 /* FirebaseAuthCombine-Community */; };
+		F751A5E52757400600F50C4F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F751A5E42757400600F50C4F /* LocationManager.swift */; };
+		F751A5E72757403600F50C4F /* LocationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F751A5E62757403600F50C4F /* LocationRequest.swift */; };
+		F751A5E9275740B500F50C4F /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = F751A5E8275740B500F50C4F /* Error.swift */; };
+		F751A5ED2757431500F50C4F /* Restaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F751A5EC2757431500F50C4F /* Restaurants.swift */; };
+		F751A5F22757F56A00F50C4F /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = F751A5F12757F56A00F50C4F /* Loading.swift */; };
+		F751A6072757FE0000F50C4F /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = F751A6062757FE0000F50C4F /* Login.swift */; };
+		F751A6092758048700F50C4F /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F751A6082758048700F50C4F /* SessionStore.swift */; };
+		F751A60B2758083D00F50C4F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F751A60A2758083D00F50C4F /* Settings.swift */; };
+		F751A60F27580C2400F50C4F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F751A60E27580C2400F50C4F /* GoogleService-Info.plist */; };
+		F751A61127581A3F00F50C4F /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F751A61027581A3F00F50C4F /* LoginPage.swift */; };
+		F751A61327581A6500F50C4F /* KeyboardResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F751A61227581A6500F50C4F /* KeyboardResponder.swift */; };
+		F751A6162758298600F50C4F /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = F751A6152758298600F50C4F /* SDWebImageSwiftUI */; };
+		F7C316C42756FB090051290B /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C316C32756FB090051290B /* TopView.swift */; };
+		F7C316C62756FE470051290B /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C316C52756FE470051290B /* LocationViewModel.swift */; };
+		F7C316CA275706900051290B /* RestaurantFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C316C9275706900051290B /* RestaurantFetcher.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F717B7FD2756D003005D1DFD /* TinderMyRestaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinderMyRestaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F717B8002756D003005D1DFD /* TinderMyRestaurantApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinderMyRestaurantApp.swift; sourceTree = "<group>"; };
+		F717B8022756D003005D1DFD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F717B8042756D004005D1DFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F717B8072756D004005D1DFD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F717B8092756D004005D1DFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F717B8102756D04D005D1DFD /* RestaurantCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCard.swift; sourceTree = "<group>"; };
+		F717B8122756D129005D1DFD /* types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = types.swift; sourceTree = "<group>"; };
+		F7231F3E27587F34007B27B0 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		F7231F422759653C007B27B0 /* SingleRestaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRestaurant.swift; sourceTree = "<group>"; };
+		F751A5E42757400600F50C4F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		F751A5E62757403600F50C4F /* LocationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRequest.swift; sourceTree = "<group>"; };
+		F751A5E8275740B500F50C4F /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		F751A5EC2757431500F50C4F /* Restaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurants.swift; sourceTree = "<group>"; };
+		F751A5F12757F56A00F50C4F /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
+		F751A6062757FE0000F50C4F /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		F751A6082758048700F50C4F /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
+		F751A60A2758083D00F50C4F /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		F751A60E27580C2400F50C4F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F751A61027581A3F00F50C4F /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
+		F751A61227581A6500F50C4F /* KeyboardResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponder.swift; sourceTree = "<group>"; };
+		F7C316C32756FB090051290B /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
+		F7C316C52756FE470051290B /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		F7C316C9275706900051290B /* RestaurantFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantFetcher.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F717B7FA2756D003005D1DFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F751A6162758298600F50C4F /* SDWebImageSwiftUI in Frameworks */,
+				F7231F4827598F84007B27B0 /* FirebaseAuthCombine-Community in Frameworks */,
+				F7231F4627598F84007B27B0 /* FirebaseAuth in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F717B7F42756D003005D1DFD = {
+			isa = PBXGroup;
+			children = (
+				F751A60E27580C2400F50C4F /* GoogleService-Info.plist */,
+				F717B7FF2756D003005D1DFD /* TinderMyRestaurant */,
+				F717B7FE2756D003005D1DFD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F717B7FE2756D003005D1DFD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F717B7FD2756D003005D1DFD /* TinderMyRestaurant.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F717B7FF2756D003005D1DFD /* TinderMyRestaurant */ = {
+			isa = PBXGroup;
+			children = (
+				F717B80F2756D040005D1DFD /* Views */,
+				F717B8002756D003005D1DFD /* TinderMyRestaurantApp.swift */,
+				F717B8022756D003005D1DFD /* ContentView.swift */,
+				F717B8042756D004005D1DFD /* Assets.xcassets */,
+				F717B8092756D004005D1DFD /* Info.plist */,
+				F717B8062756D004005D1DFD /* Preview Content */,
+				F717B8122756D129005D1DFD /* types.swift */,
+				F7C316C52756FE470051290B /* LocationViewModel.swift */,
+				F7C316C9275706900051290B /* RestaurantFetcher.swift */,
+				F751A5E42757400600F50C4F /* LocationManager.swift */,
+				F751A6082758048700F50C4F /* SessionStore.swift */,
+				F751A61227581A6500F50C4F /* KeyboardResponder.swift */,
+				F7231F3E27587F34007B27B0 /* Launch Screen.storyboard */,
+			);
+			path = TinderMyRestaurant;
+			sourceTree = "<group>";
+		};
+		F717B8062756D004005D1DFD /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F717B8072756D004005D1DFD /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F717B80F2756D040005D1DFD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F717B8102756D04D005D1DFD /* RestaurantCard.swift */,
+				F7C316C32756FB090051290B /* TopView.swift */,
+				F751A5E62757403600F50C4F /* LocationRequest.swift */,
+				F751A5E8275740B500F50C4F /* Error.swift */,
+				F751A5EC2757431500F50C4F /* Restaurants.swift */,
+				F751A5F12757F56A00F50C4F /* Loading.swift */,
+				F751A6062757FE0000F50C4F /* Login.swift */,
+				F751A60A2758083D00F50C4F /* Settings.swift */,
+				F751A61027581A3F00F50C4F /* LoginPage.swift */,
+				F7231F422759653C007B27B0 /* SingleRestaurant.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F717B7FC2756D003005D1DFD /* TinderMyRestaurant */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F717B80C2756D004005D1DFD /* Build configuration list for PBXNativeTarget "TinderMyRestaurant" */;
+			buildPhases = (
+				F717B7F92756D003005D1DFD /* Sources */,
+				F717B7FA2756D003005D1DFD /* Frameworks */,
+				F717B7FB2756D003005D1DFD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TinderMyRestaurant;
+			packageProductDependencies = (
+				F751A6152758298600F50C4F /* SDWebImageSwiftUI */,
+				F7231F4527598F84007B27B0 /* FirebaseAuth */,
+				F7231F4727598F84007B27B0 /* FirebaseAuthCombine-Community */,
+			);
+			productName = TinderMyRestaurant;
+			productReference = F717B7FD2756D003005D1DFD /* TinderMyRestaurant.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F717B7F52756D003005D1DFD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					F717B7FC2756D003005D1DFD = {
+						CreatedOnToolsVersion = 12.5;
+					};
+				};
+			};
+			buildConfigurationList = F717B7F82756D003005D1DFD /* Build configuration list for PBXProject "TinderMyRestaurant" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F717B7F42756D003005D1DFD;
+			packageReferences = (
+				F751A6142758298500F50C4F /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				F7231F4427598F84007B27B0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			productRefGroup = F717B7FE2756D003005D1DFD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F717B7FC2756D003005D1DFD /* TinderMyRestaurant */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F717B7FB2756D003005D1DFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F717B8082756D004005D1DFD /* Preview Assets.xcassets in Resources */,
+				F717B8052756D004005D1DFD /* Assets.xcassets in Resources */,
+				F7231F3F27587F34007B27B0 /* Launch Screen.storyboard in Resources */,
+				F751A60F27580C2400F50C4F /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F717B7F92756D003005D1DFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F751A61127581A3F00F50C4F /* LoginPage.swift in Sources */,
+				F751A61327581A6500F50C4F /* KeyboardResponder.swift in Sources */,
+				F7231F432759653C007B27B0 /* SingleRestaurant.swift in Sources */,
+				F717B8112756D04D005D1DFD /* RestaurantCard.swift in Sources */,
+				F7C316C62756FE470051290B /* LocationViewModel.swift in Sources */,
+				F751A6072757FE0000F50C4F /* Login.swift in Sources */,
+				F7C316C42756FB090051290B /* TopView.swift in Sources */,
+				F751A5ED2757431500F50C4F /* Restaurants.swift in Sources */,
+				F751A5E72757403600F50C4F /* LocationRequest.swift in Sources */,
+				F717B8032756D003005D1DFD /* ContentView.swift in Sources */,
+				F751A5E52757400600F50C4F /* LocationManager.swift in Sources */,
+				F751A6092758048700F50C4F /* SessionStore.swift in Sources */,
+				F751A60B2758083D00F50C4F /* Settings.swift in Sources */,
+				F717B8012756D003005D1DFD /* TinderMyRestaurantApp.swift in Sources */,
+				F717B8132756D129005D1DFD /* types.swift in Sources */,
+				F751A5E9275740B500F50C4F /* Error.swift in Sources */,
+				F751A5F22757F56A00F50C4F /* Loading.swift in Sources */,
+				F7C316CA275706900051290B /* RestaurantFetcher.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F717B80A2756D004005D1DFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F717B80B2756D004005D1DFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F717B80D2756D004005D1DFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"TinderMyRestaurant/Preview Content\"";
+				DEVELOPMENT_TEAM = FSKQQ5G5Q3;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = TinderMyRestaurant/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = csirin.sfsu.edu.TinderMyRestaurant;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		F717B80E2756D004005D1DFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"TinderMyRestaurant/Preview Content\"";
+				DEVELOPMENT_TEAM = FSKQQ5G5Q3;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = TinderMyRestaurant/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = csirin.sfsu.edu.TinderMyRestaurant;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F717B7F82756D003005D1DFD /* Build configuration list for PBXProject "TinderMyRestaurant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F717B80A2756D004005D1DFD /* Debug */,
+				F717B80B2756D004005D1DFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F717B80C2756D004005D1DFD /* Build configuration list for PBXNativeTarget "TinderMyRestaurant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F717B80D2756D004005D1DFD /* Debug */,
+				F717B80E2756D004005D1DFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F7231F4427598F84007B27B0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+		F751A6142758298500F50C4F /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F7231F4527598F84007B27B0 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F7231F4427598F84007B27B0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		F7231F4727598F84007B27B0 /* FirebaseAuthCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F7231F4427598F84007B27B0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAuthCombine-Community";
+		};
+		F751A6152758298600F50C4F /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F751A6142758298500F50C4F /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = F717B7F52756D003005D1DFD /* Project object */;
+}
