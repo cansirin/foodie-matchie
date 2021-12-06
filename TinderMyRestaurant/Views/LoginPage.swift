@@ -17,6 +17,7 @@ struct LoginPage: View {
 	@State var loading = false
 	@State var error = false
 	@State var authenticationFailed = false
+    @State var selection:String? = nil
 
 	func login() {
 		loading = true
@@ -61,6 +62,20 @@ struct LoginPage: View {
 						Text("Sign in")
 					}
 					Spacer()
+                    NavigationLink(destination: SignUp(session: session), tag: "Sign Up", selection: $selection) {    HStack {
+                        Button {
+                            self.selection = "Sign Up"
+                        } label: {
+                            Text("Not signed up yet!?")
+                        }
+//                        Button {
+//                            self.selection = restaurant.location.address1
+//                        } label: {
+//                            Image(systemName: "heart.circle").foregroundColor(.green).font(.system(size: 52))
+//                        }
+                    }.padding(.bottom)
+                    }
+                    
 				}
 				.padding()
 				.navigationBarTitle("Log in").multilineTextAlignment(.leading)
@@ -112,3 +127,45 @@ struct SignInIllustration: View {
 	}
 }
 
+//struct SignUp : View{
+//    @State var color = Color.black.opacity(0.7)
+//    @State var email = ""
+//    @State var pass = ""
+//    @State var repass = ""
+//    @State var visible = false
+//    @State var revisible = false
+//    @Binding var show : Bool
+//    @State var alert = false
+//    @State var error = ""
+//    var body: some View {
+//        GeometryReader { geometry in
+//            NavigationView {
+//                VStack {
+//                    SignInIllustration()
+//                    TextField("Username", text: $email)
+//                        .padding()
+////                        .background(black)
+//                        .cornerRadius(5.0)
+//                        .padding(.bottom, 20)
+//                    TextField("Password", text: $pass)
+//                        .padding()
+//                        .background(lightGreyColor)
+//                        .cornerRadius(5.0)
+//                        .padding(.bottom, 20)
+//                    RememberForgotView()
+//                    if authenticationFailed {
+//                        Text("Information not correct. Try again.")
+//                            .offset(y: -10)
+//                            .foregroundColor(.red)
+//                    }
+//                    Button(action: { signup() }) {
+//                        Text("Sign up")
+//                    }
+//                    Spacer()
+//                }
+//                .padding()
+//                .navigationBarTitle("Log in").multilineTextAlignment(.leading)
+//            }
+//        }
+//    }
+//}

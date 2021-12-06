@@ -21,7 +21,7 @@ struct TopView : View {
 
 			Spacer()
 			if(session.session != nil){
-				SettingsIcon()
+                SettingsIcon(session: session)
 			} else {
 				LoginIcon(session: session)
 			}
@@ -32,14 +32,15 @@ struct TopView : View {
 
 struct SettingsIcon: View {
 	@State private var isActive = false
-
+    var session: SessionStore
+    
 	var body: some View {
 		Button(action: {
 			self.isActive.toggle()
 		}) {
 			Image(systemName: "gearshape").resizable().frame(width: 35, height: 35)
 		}.foregroundColor(.gray).sheet(isPresented: $isActive) {
-			Settings()
+			Settings(sessionStore: session)
 		}
 	}
 }
