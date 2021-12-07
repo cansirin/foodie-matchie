@@ -22,15 +22,16 @@ struct ForgotPassword : View {
         } else {
             VStack {
                 TextField("Email", text: $email).autocapitalization(.none)
-                Button(action: { reset() }) {
-                    Text("Reset password!")
-                }
-                .alert(isPresented: $showingAlert){
-                    Alert(title: Text("Title"), message: Text("Email sent"))
+                Button(action: { reset() ;self.showingAlert.toggle()}) {
+                    Text("Reset your password")
+                    
+                }.alert(isPresented: self.$showingAlert){
+                    Alert(title: Text("Alert"), message: Text("Reset password link has been sent"))
                 }
                 
             }
             .padding()
+
         }
         
     }
