@@ -10,6 +10,7 @@ import SwiftUI
 struct Settings: View {
     @ObservedObject var sessionStore: SessionStore
     @ObservedObject var fetcher: RestaurantFetcher
+		@ObservedObject var locationManager: LocationManager
     @State var sliderValue: Double = 0
     
     var body: some View {
@@ -28,7 +29,7 @@ struct Settings: View {
             }.padding()
                 .foregroundColor(Color.green)
             
-            Button("Save this distance", action: {fetcher.loadDocuMenu(address: "59 FBI Street")} )
+					Button("Save this distance", action: {fetcher.loadDocuMenu(latitude: locationManager.lastLocation.latitude, longitude: locationManager.lastLocation.longitude, distance: Int(sliderValue))} )
             Section(){
                 Button("Sign out", action: {
                     sessionStore.signOut()
@@ -47,6 +48,6 @@ struct Settings: View {
 
 struct Settings_Previews: PreviewProvider {
     static var previews: some View {
-        Settings(sessionStore: SessionStore(), fetcher: RestaurantFetcher())
+        Settings(sessionStore: SessionStore(), fetcher: RestaurantFetcher(), locationManager: LocationManager())
     }
 }

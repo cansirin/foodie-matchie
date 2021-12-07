@@ -46,7 +46,7 @@ public class RestaurantFetcher: ObservableObject {
 			"x-rapidapi-host": "documenu.p.rapidapi.com",
 			"x-rapidapi-key": "92a76aa3f4msh69933f14b31c7d4p108ed8jsnf6c71a5f5108"
 		]
-		print(latitude, longitude)
+		print(latitude, longitude, distance)
 		let originalString = "https://documenu.p.rapidapi.com/restaurants/search/geo?lat=\(latitude)&lon=\(longitude)&distance=\(distance)&fullmenu=true"
 		guard let urlString = originalString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
 		let url = URL(string: urlString)!

@@ -17,7 +17,7 @@ struct Restaurants: View {
 	var body: some View {
 		VStack {
 
-            TopView(session: session, fetcher: fetcher)
+			TopView(session: session, fetcher: fetcher, locationManager: locationManager)
 			NavigationView {
 				VStack{
 					GeometryReader { geometry in
