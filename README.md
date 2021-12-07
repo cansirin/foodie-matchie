@@ -1,4 +1,4 @@
-#FoodieMatchie
+# FoodieMatchie
 
 A Tinder app but for food. Find your perfect matches near you and go on a date at your new favorite restaurant! 
 
