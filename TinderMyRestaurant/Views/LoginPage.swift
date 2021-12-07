@@ -42,17 +42,17 @@ struct LoginPage: View {
 			NavigationView {
 				VStack {
 					SignInIllustration()
-					TextField("Username", text: $email)
+                    TextField("Email", text: $email).autocapitalization(.none)
 						.padding()
 						.background(lightGreyColor)
 						.cornerRadius(5.0)
 						.padding(.bottom, 20)
-					TextField("Password", text: $password)
+                    SecureField("Password", text: $password).autocapitalization(.none)
 						.padding()
 						.background(lightGreyColor)
 						.cornerRadius(5.0)
 						.padding(.bottom, 20)
-					RememberForgotView()
+                    RememberForgotView( selection: selection,session: session)
 					if authenticationFailed {
 						Text("Information not correct. Try again.")
 							.offset(y: -10)
@@ -104,17 +104,21 @@ struct LoginButton: View {
 }
 
 struct RememberForgotView: View {
+    @State var selection:String? = nil
+    @ObservedObject var session: SessionStore
 	var body: some View {
 		HStack {
 			Spacer()
-			Text("Forgot password")
-				.font(.footnote)
-				.foregroundColor(.blue)
-				.bold()
+            NavigationLink(destination: ForgotPassword(session: session), tag: "Forgot password", selection: $selection) {    HStack {
+                Button {
+                    self.selection = "Forgot password"
+                } label: {
+                    Text("Forgot password")
+                }
 		}
-	}
+            }}
+    }
 }
-
 
 
 struct SignInIllustration: View {
@@ -127,45 +131,3 @@ struct SignInIllustration: View {
 	}
 }
 
-//struct SignUp : View{
-//    @State var color = Color.black.opacity(0.7)
-//    @State var email = ""
-//    @State var pass = ""
-//    @State var repass = ""
-//    @State var visible = false
-//    @State var revisible = false
-//    @Binding var show : Bool
-//    @State var alert = false
-//    @State var error = ""
-//    var body: some View {
-//        GeometryReader { geometry in
-//            NavigationView {
-//                VStack {
-//                    SignInIllustration()
-//                    TextField("Username", text: $email)
-//                        .padding()
-////                        .background(black)
-//                        .cornerRadius(5.0)
-//                        .padding(.bottom, 20)
-//                    TextField("Password", text: $pass)
-//                        .padding()
-//                        .background(lightGreyColor)
-//                        .cornerRadius(5.0)
-//                        .padding(.bottom, 20)
-//                    RememberForgotView()
-//                    if authenticationFailed {
-//                        Text("Information not correct. Try again.")
-//                            .offset(y: -10)
-//                            .foregroundColor(.red)
-//                    }
-//                    Button(action: { signup() }) {
-//                        Text("Sign up")
-//                    }
-//                    Spacer()
-//                }
-//                .padding()
-//                .navigationBarTitle("Log in").multilineTextAlignment(.leading)
-//            }
-//        }
-//    }
-//}

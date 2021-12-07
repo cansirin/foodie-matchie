@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		72EAACA0275E9B780050039F /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EAAC9F275E9B780050039F /* SignUp.swift */; };
+		72EAACA2275EDDA50050039F /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EAACA1275EDDA50050039F /* ForgotPassword.swift */; };
 		F717B8012756D003005D1DFD /* TinderMyRestaurantApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F717B8002756D003005D1DFD /* TinderMyRestaurantApp.swift */; };
 		F717B8032756D003005D1DFD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F717B8022756D003005D1DFD /* ContentView.swift */; };
 		F717B8052756D004005D1DFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F717B8042756D004005D1DFD /* Assets.xcassets */; };
@@ -33,10 +34,12 @@
 		F7C316C42756FB090051290B /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C316C32756FB090051290B /* TopView.swift */; };
 		F7C316C62756FE470051290B /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C316C52756FE470051290B /* LocationViewModel.swift */; };
 		F7C316CA275706900051290B /* RestaurantFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C316C9275706900051290B /* RestaurantFetcher.swift */; };
+		FCC54E94275EFEBC005848D1 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC54E93275EFEBC005848D1 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		72EAAC9F275E9B780050039F /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		72EAACA1275EDDA50050039F /* ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
 		F717B7FD2756D003005D1DFD /* TinderMyRestaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinderMyRestaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F717B8002756D003005D1DFD /* TinderMyRestaurantApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinderMyRestaurantApp.swift; sourceTree = "<group>"; };
 		F717B8022756D003005D1DFD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,6 +64,7 @@
 		F7C316C32756FB090051290B /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		F7C316C52756FE470051290B /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		F7C316C9275706900051290B /* RestaurantFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantFetcher.swift; sourceTree = "<group>"; };
+		FCC54E93275EFEBC005848D1 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +140,8 @@
 				F751A61027581A3F00F50C4F /* LoginPage.swift */,
 				F7231F422759653C007B27B0 /* SingleRestaurant.swift */,
 				72EAAC9F275E9B780050039F /* SignUp.swift */,
+				72EAACA1275EDDA50050039F /* ForgotPassword.swift */,
+				FCC54E93275EFEBC005848D1 /* MapView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -227,6 +233,7 @@
 				F7C316C62756FE470051290B /* LocationViewModel.swift in Sources */,
 				F751A6072757FE0000F50C4F /* Login.swift in Sources */,
 				F7C316C42756FB090051290B /* TopView.swift in Sources */,
+				FCC54E94275EFEBC005848D1 /* MapView.swift in Sources */,
 				F751A5ED2757431500F50C4F /* Restaurants.swift in Sources */,
 				F751A5E72757403600F50C4F /* LocationRequest.swift in Sources */,
 				F717B8032756D003005D1DFD /* ContentView.swift in Sources */,
@@ -239,6 +246,7 @@
 				72EAACA0275E9B780050039F /* SignUp.swift in Sources */,
 				F751A5F22757F56A00F50C4F /* Loading.swift in Sources */,
 				F7C316CA275706900051290B /* RestaurantFetcher.swift in Sources */,
+				72EAACA2275EDDA50050039F /* ForgotPassword.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

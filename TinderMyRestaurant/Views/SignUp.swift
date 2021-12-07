@@ -39,8 +39,8 @@ struct SignUp: View {
                 VStack(alignment: .center, spacing: 22, content:{
                     //Image
                     SignInIllustration()
-                    TextField("Email", text: $email).padding(.leading, 12).font(.system(size: 20))
-                    TextField("Password", text: $password).padding(.leading, 12).font(.system(size: 20))
+                    TextField("Email", text: $email).padding(.leading, 12).font(.system(size: 30)).autocapitalization(.none).background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)).cornerRadius(5.0)
+                    SecureField("Password", text: $password).padding(.leading, 12).font(.system(size: 30)).autocapitalization(.none).background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)).cornerRadius(5.0)
                     Button(action: { signup() }) {
                         Text("Sign Up")
                     }
@@ -49,7 +49,7 @@ struct SignUp: View {
                 
                 
             }.padding()
-                .navigationBarTitle("Sign Up").multilineTextAlignment(.leading)
+            .navigationBarTitle("Sign Up").multilineTextAlignment(.leading)
         }
     }
 }
