@@ -12,12 +12,13 @@ struct Restaurants: View {
 	@ObservedObject var session: SessionStore
 	@ObservedObject var locationManager: LocationManager
 	@State private var selection: String? = nil
+    
 
 
 	var body: some View {
 		VStack {
 
-			TopView(session: session)
+            TopView(session: session, fetcher: fetcher)
 			NavigationView {
 				VStack{
 					GeometryReader { geometry in

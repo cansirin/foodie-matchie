@@ -11,6 +11,7 @@ struct TopView : View {
 	@State private var isLoggedIn = false
 	@State private var navigationIsShowing = false
 	@ObservedObject var session: SessionStore
+    @ObservedObject var fetcher: RestaurantFetcher
 
 	var body : some View{
 		HStack{
@@ -21,7 +22,7 @@ struct TopView : View {
 
 			Spacer()
 			if(session.session != nil){
-                SettingsIcon(session: session)
+                SettingsIcon(session: session, fetcher: fetcher)
 			} else {
 				LoginIcon(session: session)
 			}
@@ -33,6 +34,7 @@ struct TopView : View {
 struct SettingsIcon: View {
 	@State private var isActive = false
     var session: SessionStore
+    var fetcher: RestaurantFetcher
     
 	var body: some View {
 		Button(action: {
@@ -40,7 +42,7 @@ struct SettingsIcon: View {
 		}) {
 			Image(systemName: "gearshape").resizable().frame(width: 35, height: 35)
 		}.foregroundColor(.gray).sheet(isPresented: $isActive) {
-			Settings(sessionStore: session)
+            Settings(sessionStore: session, fetcher: fetcher)
 		}
 	}
 }
