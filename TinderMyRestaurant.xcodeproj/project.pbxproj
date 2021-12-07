@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		72EAACA0275E9B780050039F /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EAAC9F275E9B780050039F /* SignUp.swift */; };
+		72EAACA2275EDDA50050039F /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EAACA1275EDDA50050039F /* ForgotPassword.swift */; };
 		F717B8012756D003005D1DFD /* TinderMyRestaurantApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F717B8002756D003005D1DFD /* TinderMyRestaurantApp.swift */; };
 		F717B8032756D003005D1DFD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F717B8022756D003005D1DFD /* ContentView.swift */; };
 		F717B8052756D004005D1DFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F717B8042756D004005D1DFD /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		72EAAC9F275E9B780050039F /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		72EAACA1275EDDA50050039F /* ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
 		F717B7FD2756D003005D1DFD /* TinderMyRestaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinderMyRestaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F717B8002756D003005D1DFD /* TinderMyRestaurantApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinderMyRestaurantApp.swift; sourceTree = "<group>"; };
 		F717B8022756D003005D1DFD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				F751A61027581A3F00F50C4F /* LoginPage.swift */,
 				F7231F422759653C007B27B0 /* SingleRestaurant.swift */,
 				72EAAC9F275E9B780050039F /* SignUp.swift */,
+				72EAACA1275EDDA50050039F /* ForgotPassword.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				72EAACA0275E9B780050039F /* SignUp.swift in Sources */,
 				F751A5F22757F56A00F50C4F /* Loading.swift in Sources */,
 				F7C316CA275706900051290B /* RestaurantFetcher.swift in Sources */,
+				72EAACA2275EDDA50050039F /* ForgotPassword.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

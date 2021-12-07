@@ -39,8 +39,8 @@ struct SignUp: View {
                 VStack(alignment: .center, spacing: 22, content:{
                     //Image
                     SignInIllustration()
-                    TextField("Email", text: $email).padding(.leading, 12).font(.system(size: 20))
-                    TextField("Password", text: $password).padding(.leading, 12).font(.system(size: 20))
+                    TextField("Email", text: $email).padding(.leading, 12).font(.system(size: 20)).autocapitalization(.none)
+                    SecureField("Password", text: $password).padding(.leading, 12).font(.system(size: 20)).autocapitalization(.none)
                     Button(action: { signup() }) {
                         Text("Sign Up")
                     }
