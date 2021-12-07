@@ -8,23 +8,39 @@
 import SwiftUI
 
 struct Settings: View {
-	@ObservedObject var sessionStore: SessionStore
-
-	var body: some View {
-		List {
-			Button(action: {
-				sessionStore.signOut()
-			}) {
-				Image(systemName: "gearshape").resizable().frame(width: 35, height: 35)
-			}.foregroundColor(.gray)
-		}
-	}
+    @ObservedObject var sessionStore: SessionStore
+    
+    var body: some View {
+        List {
+            Section(header: Text("Account")){
+                
+                Image(systemName: "person").resizable().frame(width: 50, height: 50)
+                Text("Profile Setting").font(.largeTitle)
+            }.foregroundColor(.gray).frame(width: 300)
+            
+            
+            VStack(){
+                Text("Placeholder for future feature")
+                Text("Placeholder for future feature")
+            }
+            Section(){
+                Button("Sign out", action: {
+                    sessionStore.signOut()
+                }).padding()
+                    .font(.largeTitle)
+                    .frame(alignment: .center)
+            }.padding()
+                .frame(alignment: .center)
+                
+            
+        }
+    }
 }
 
 
 
 struct Settings_Previews: PreviewProvider {
-	static var previews: some View {
-		Settings(sessionStore: SessionStore())
-	}
+    static var previews: some View {
+        Settings(sessionStore: SessionStore())
+    }
 }
