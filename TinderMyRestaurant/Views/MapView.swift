@@ -23,6 +23,7 @@ struct MapView: View{
 			Map(coordinateRegion: $locationManager.region, showsUserLocation: true, annotationItems: annotation) { item in
 				MapMarker(coordinate: item.coordinate)
 			}
+
     }
 }
 
