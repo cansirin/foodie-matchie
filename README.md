@@ -13,15 +13,15 @@ In this project, we will be building a simple tinder app for restaurant that hel
 
 # Must have features:
 
-*Get data from API
-*Get users' location
-*Restaurant Menu
-*Display correctly for each restaurant
-*Picture of the restaurant or what they offer
-*Like and dislike
+* Get data from API
+* Get users' location
+* Restaurant Menu
+* Display correctly for each restaurant
+* Picture of the restaurant or what they offer
+* Like and dislike
 
 # Nice to have features:
 
-*Sign up an account
-*Map to the restaurant you like
-*Reastaurant address, rating, distance away from you, phone number, and price range
+* Sign up an account
+* Map to the restaurant you like
+* Reastaurant address, rating, distance away from you, phone number, and price range
