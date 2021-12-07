@@ -10,15 +10,10 @@ import SDWebImageSwiftUI
 
 struct RestaurantCard: View {
 	let restaurant: DocuMenuRestaurant
-	@ObservedObject var fetcher: RestaurantFetcher
 
 	@GestureState var translation: CGSize = .zero
 
 	var body: some View {
-
-		let dragGesture = DragGesture().updating($translation) { value, state, _ in
-			state = value.translation
-		}
 
 		GeometryReader { geometry in
 			VStack {
@@ -61,34 +56,18 @@ struct RestaurantCard: View {
 
 			}
 			.overlay(Divider(), alignment: .top)
-			.overlay(Divider(), alignment: .bottom)
-			.padding(.bottom)
 			.background(Color.white)
 //			.cornerRadius(10.0)
 
 			.shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
 			.shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
-			.animation(.interactiveSpring())
-			.offset(x: self.translation.width, y: 0)
-			.rotationEffect(.degrees(Double(self.translation.width / geometry.size.width)*25), anchor: .bottom)
-			.gesture(dragGesture.onEnded({ value in
-				let direction = detectDirection(value: value)
-				if(direction == .left){
-					fetcher.restaurantWithMenu = fetcher.restaurantWithMenu.filter { resta in
-						resta.restaurantName != restaurant.restaurantName
-					}
-				}
-				if(direction == .right){
-					
-				}
-			}))
 		}
 	}
 }
 
 struct RestaurantCard_Previews: PreviewProvider {
 	static var previews: some View {
-		RestaurantCard(restaurant: DocuMenuRestaurant(restaurantId: 1, restaurantName: "Can's Place", restaurantPhone: "555 431 33 22", priceRangeNum: 1, address: Address(city: "Denizli", state: "CA", postalCode: "94608", street: "Christie", formatted: "6399 Christie Ave, CA 94608"), cuisines: [], menus: [], geo: Coordinate(lat: 37.89, lon: -122.37)), fetcher: RestaurantFetcher())
+		RestaurantCard(restaurant: DocuMenuRestaurant(restaurantId: 1, restaurantName: "Can's Place", restaurantPhone: "555 431 33 22", priceRangeNum: 1, address: Address(city: "Denizli", state: "CA", postalCode: "94608", street: "Christie", formatted: "6399 Christie Ave, CA 94608"), cuisines: [], menus: [], geo: Coordinate(lat: 37.89, lon: -122.37)))
 	}
 }
 

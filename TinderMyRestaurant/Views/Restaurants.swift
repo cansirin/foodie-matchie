@@ -12,9 +12,15 @@ struct Restaurants: View {
 	@ObservedObject var session: SessionStore
 	@ObservedObject var locationManager: LocationManager
 	@State private var selection: Int? = nil
+	@GestureState var translation: CGSize = .zero
+	
 
 
 	var body: some View {
+		let dragGesture = DragGesture().updating($translation) { value, state, _ in
+			state = value.translation
+		}
+
 		VStack {
 
 			TopView(session: session, fetcher: fetcher, locationManager: locationManager)
@@ -25,10 +31,21 @@ struct Restaurants: View {
 							ForEach(fetcher.restaurantWithMenu.shuffled().indices, id: \.self) { index in
 								let restaurant = fetcher.restaurantWithMenu[index]
 								VStack {
-									RestaurantCard(restaurant: restaurant, fetcher: fetcher)
-										.animation(.spring()).padding(.bottom)
-									Spacer()
-
+									RestaurantCard(restaurant: restaurant)
+										.animation(.interactiveSpring())
+										.offset(x: self.translation.width, y: 0)
+										.rotationEffect(.degrees(Double(self.translation.width / geometry.size.width)*25), anchor: .bottom)
+										.gesture(dragGesture.onEnded({ value in
+											let direction = detectDirection(value: value)
+											if(direction == .left){
+												fetcher.restaurantWithMenu = fetcher.restaurantWithMenu.filter { resta in
+													resta.restaurantName != restaurant.restaurantName
+												}
+											}
+											if(direction == .right){
+												self.selection = restaurant.restaurantId
+											}
+										}))
 									NavigationLink(destination: SingleRestaurant(locationManager: locationManager, restaurant: restaurant), tag: restaurant.restaurantId, selection: $selection) {	HStack {
 										Button {
 											self.selection = nil
@@ -41,9 +58,11 @@ struct Restaurants: View {
 										} label: {
 											Image(systemName: "heart.circle").foregroundColor(.green).font(.system(size: 48))
 										}
-									}.padding()
 									}
-								}
+									}
+								}.background(
+									LinearGradient(gradient: Gradient(colors: [.white, .black]), startPoint: .top, endPoint: .bottom)
+								)
 							}
 						} else {
 							ActivityIndicator()
@@ -52,23 +71,8 @@ struct Restaurants: View {
 					}
 				}.navigationBarHidden(true)
 					.navigationBarTitle("Restaurants")
-					.edgesIgnoringSafeArea([.top, .bottom])
-				//				HStack {
-				//					Button {
-				//						self.selection = nil
-				//					} label: {
-				//						Image(systemName: "xmark.circle").foregroundColor(.red).font(.system(size: 52))
-				//					}
-				//					Button {
-				//						self.selection = "542 Green St"
-				//					} label: {
-				//						Image(systemName: "heart.circle").foregroundColor(.green).font(.system(size: 52))
-				//					}
-				//
-				//				}
-				//				.padding(.top)
-
-				//				LikeAndDislikeButtons()
+					.navigationViewStyle(StackNavigationViewStyle())
+					.statusBar(hidden: true)
 			}
 		}
 	}

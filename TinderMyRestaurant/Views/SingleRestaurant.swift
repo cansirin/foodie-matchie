@@ -8,19 +8,16 @@
 import SwiftUI
 
 struct SingleRestaurant: View {
-//	@ObservedObject var fetcher: RestaurantFetcher
 	@ObservedObject var locationManager: LocationManager
 	@State var restaurant: DocuMenuRestaurant
-
-//	func load(){
-//		fetcher.loadDocuMenu(latitude: locationManager.lastLocation.latitude, longitude: locationManager.lastLocation.longitude, distance: 5)
-//	}
 
 	var body: some View {
 		GeometryReader { geometry in
 			VStack{
-				Text(restaurant.restaurantName)
+				Text(restaurant.restaurantName).font(.largeTitle)
+				Text(restaurant.address.formatted).font(.subheadline)
 				List {
+					MapView(latitude: restaurant.geo.lat, longitude: restaurant.geo.lon).frame(width: geometry.size.width, height: geometry.size.height/2)
 					ForEach(restaurant.menus, id: \.self) { menu in
 						ForEach(menu.menuSections, id: \.self) { menuSection in
 							Text(menuSection.sectionName).bold()
@@ -30,7 +27,6 @@ struct SingleRestaurant: View {
 										Text(item.name)
 										Spacer()
 										Text("$" + String(item.price))
-
 									}
 									Spacer()
 									Text(item.description).font(.caption).foregroundColor(.green)

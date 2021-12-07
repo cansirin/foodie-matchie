@@ -8,6 +8,7 @@
 import Foundation
 import CoreLocation
 import Combine
+import MapKit
 
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
@@ -15,6 +16,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
 	@Published var authStatus: CLAuthorizationStatus?
 	@Published var lastLocation: CLLocation
 	@Published var currentPlacemark: CLPlacemark?
+	@Published var region = MKCoordinateRegion()
 
 	override init() {
 		self.locationManager = CLLocationManager()
@@ -54,7 +56,11 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
 		guard let currentLocation = locations.last else {return}
 		self.lastLocation = currentLocation
 		fetchCityAndCountry(for: self.lastLocation)
-
+		locations.last.map {
+			let center = CLLocationCoordinate2D(latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude)
+			let span = MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03)
+			region = MKCoordinateRegion(center: center, span: span)
+		}
 	}
 
 	func fetchCityAndCountry(for location: CLLocation?) {
