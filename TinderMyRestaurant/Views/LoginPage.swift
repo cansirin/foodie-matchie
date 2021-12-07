@@ -17,7 +17,7 @@ struct LoginPage: View {
 	@State var loading = false
 	@State var error = false
 	@State var authenticationFailed = false
-    @State var selection:String? = nil
+	@State var selection: String? = nil
 
 	func login() {
 		loading = true
@@ -26,10 +26,12 @@ struct LoginPage: View {
 			if error != nil {
 				print(error?.localizedDescription ?? "")
 				self.error = true
+				self.authenticationFailed = true
 			} else {
 				self.email = ""
 				self.password = ""
 				print("success")
+				self.authenticationFailed = false
 				self.presentation.wrappedValue.dismiss()
 			}
 		}
@@ -42,12 +44,15 @@ struct LoginPage: View {
 			NavigationView {
 				VStack {
 					SignInIllustration()
-                    TextField("Email", text: $email).autocapitalization(.none)
+					TextField("Email", text: $email)
+						.autocapitalization(.none)
 						.padding()
 						.background(lightGreyColor)
 						.cornerRadius(5.0)
 						.padding(.bottom, 20)
-                    SecureField("Password", text: $password).autocapitalization(.none)
+
+					SecureField("Password", text: $password)
+						.autocapitalization(.none)
 						.padding()
 						.background(lightGreyColor)
 						.cornerRadius(5.0)
@@ -62,20 +67,15 @@ struct LoginPage: View {
 						Text("Sign in")
 					}
 					Spacer()
-                    NavigationLink(destination: SignUp(session: session), tag: "Sign Up", selection: $selection) {    HStack {
-                        Button {
-                            self.selection = "Sign Up"
-                        } label: {
-                            Text("Not signed up yet!?")
-                        }
-//                        Button {
-//                            self.selection = restaurant.location.address1
-//                        } label: {
-//                            Image(systemName: "heart.circle").foregroundColor(.green).font(.system(size: 52))
-//                        }
-                    }.padding(.bottom)
-                    }
-                    
+					NavigationLink(destination: SignUp(session: session), tag: "Sign Up", selection: $selection) {
+						HStack {
+							Button {
+								self.selection = "Sign Up"
+							} label: {
+								Text("Not signed up yet!?")
+							}
+						}.padding(.bottom)
+					}
 				}
 				.padding()
 				.navigationBarTitle("Log in").multilineTextAlignment(.leading)
@@ -85,9 +85,9 @@ struct LoginPage: View {
 }
 
 struct LoginPage_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginPage(session: SessionStore())
-    }
+	static var previews: some View {
+		LoginPage(session: SessionStore())
+	}
 }
 
 struct LoginButton: View {
@@ -130,4 +130,3 @@ struct SignInIllustration: View {
 			.padding(.bottom, 50)
 	}
 }
-

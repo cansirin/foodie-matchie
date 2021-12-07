@@ -11,8 +11,7 @@ struct Restaurants: View {
 	@ObservedObject var fetcher: RestaurantFetcher
 	@ObservedObject var session: SessionStore
 	@ObservedObject var locationManager: LocationManager
-	@State private var selection: String? = nil
-    
+	@State private var selection: Int? = nil
 
 
 	var body: some View {
@@ -22,28 +21,27 @@ struct Restaurants: View {
 			NavigationView {
 				VStack{
 					GeometryReader { geometry in
-						if(fetcher.restaurants.count > 0){
-							ForEach(fetcher.restaurants.indices, id: \.self) { index in
-								let restaurant = fetcher.restaurants[index]
+						if(fetcher.restaurantWithMenu.count > 0){
+							ForEach(fetcher.restaurantWithMenu.shuffled().indices, id: \.self) { index in
+								let restaurant = fetcher.restaurantWithMenu[index]
 								VStack {
-									RestaurantCard(restaurant: restaurant)
+									RestaurantCard(restaurant: restaurant, fetcher: fetcher)
 										.animation(.spring()).padding(.bottom)
-
 									Spacer()
 
-									NavigationLink(destination: SingleRestaurant(fetcher: fetcher, address: restaurant.location.address1!), tag: restaurant.location.address1!, selection: $selection) {	HStack {
+									NavigationLink(destination: SingleRestaurant(locationManager: locationManager, restaurant: restaurant), tag: restaurant.restaurantId, selection: $selection) {	HStack {
 										Button {
 											self.selection = nil
-											fetcher.restaurants.remove(at: index)
+											fetcher.restaurantWithMenu.remove(at: index)
 										} label: {
-											Image(systemName: "xmark.circle").foregroundColor(.red).font(.system(size: 52))
+											Image(systemName: "xmark.circle").foregroundColor(.red).font(.system(size: 48))
 										}
 										Button {
-											self.selection = restaurant.location.address1
+											self.selection = restaurant.restaurantId
 										} label: {
-											Image(systemName: "heart.circle").foregroundColor(.green).font(.system(size: 52))
+											Image(systemName: "heart.circle").foregroundColor(.green).font(.system(size: 48))
 										}
-									}.padding(.bottom)
+									}.padding()
 									}
 								}
 							}
@@ -71,8 +69,6 @@ struct Restaurants: View {
 				//				.padding(.top)
 
 				//				LikeAndDislikeButtons()
-			}.onAppear {
-				fetcher.loadYelpAPI(latitude: locationManager.lastLocation.latitude, longitude: locationManager.lastLocation.longitude)
 			}
 		}
 	}

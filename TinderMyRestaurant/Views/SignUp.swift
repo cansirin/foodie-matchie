@@ -24,10 +24,12 @@ struct SignUp: View {
             if error != nil {
                 print(error?.localizedDescription ?? "")
                 self.error = true
+								self.loading = false
             } else {
                 self.email = ""
                 self.password = ""
                 print("success")
+								self.loading = false
                 self.presentation.wrappedValue.dismiss()
             }
         }
@@ -43,11 +45,8 @@ struct SignUp: View {
                     SecureField("Password", text: $password).padding(.leading, 12).font(.system(size: 30)).autocapitalization(.none).background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)).cornerRadius(5.0)
                     Button(action: { signup() }) {
                         Text("Sign Up")
-                    }
-                    
+                    }  
                 })
-                
-                
             }.padding()
             .navigationBarTitle("Sign Up").multilineTextAlignment(.leading)
         }

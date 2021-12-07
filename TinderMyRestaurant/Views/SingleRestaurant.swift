@@ -8,41 +8,38 @@
 import SwiftUI
 
 struct SingleRestaurant: View {
-	@ObservedObject var fetcher: RestaurantFetcher
-	var address: String
+//	@ObservedObject var fetcher: RestaurantFetcher
+	@ObservedObject var locationManager: LocationManager
+	@State var restaurant: DocuMenuRestaurant
 
-	func load(){
-		fetcher.loadDocuMenu(address: address)
-	}
+//	func load(){
+//		fetcher.loadDocuMenu(latitude: locationManager.lastLocation.latitude, longitude: locationManager.lastLocation.longitude, distance: 5)
+//	}
 
 	var body: some View {
 		GeometryReader { geometry in
 			VStack{
-				if(fetcher.restaurantWithMenu.count > 0){
-					Text(fetcher.restaurantWithMenu[0].restaurantName)
-					List {
-						ForEach(fetcher.restaurantWithMenu[0].menus, id: \.self) { menu in
-							ForEach(menu.menuSections, id: \.self) { menuSection in
-								Text(menuSection.sectionName).bold()
-								ForEach(menuSection.menuItems, id: \.self) { item in
-									VStack(alignment: .leading) {
-										HStack {
-											Text(item.name)
-											Spacer()
-											Text(String(item.price) + "$")
-
-										}
+				Text(restaurant.restaurantName)
+				List {
+					ForEach(restaurant.menus, id: \.self) { menu in
+						ForEach(menu.menuSections, id: \.self) { menuSection in
+							Text(menuSection.sectionName).bold()
+							ForEach(menuSection.menuItems, id: \.self) { item in
+								VStack(alignment: .leading) {
+									HStack {
+										Text(item.name)
 										Spacer()
-										Text(item.description).font(.caption).foregroundColor(.green)
+										Text("$" + String(item.price))
+
 									}
+									Spacer()
+									Text(item.description).font(.caption).foregroundColor(.green)
 								}
 							}
 						}
 					}
-				} else {
-					ActivityIndicator().foregroundColor(.green)
 				}
-			}.onAppear(perform: load)
+			}
 		}
 
 	}
@@ -50,6 +47,6 @@ struct SingleRestaurant: View {
 
 struct SingleRestaurant_Previews: PreviewProvider {
 	static var previews: some View {
-		SingleRestaurant(fetcher: RestaurantFetcher(), address: "552 Green St")
-	}
+		SingleRestaurant(locationManager: LocationManager(), restaurant: DocuMenuRestaurant(restaurantId: 1, restaurantName: "Can's Place", restaurantPhone: "5555555555", priceRangeNum: 1, address: Address(city: "", state: "", postalCode: "", street: "", formatted: ""), cuisines: [], menus: [], geo: Coordinate(lat: 37.89, lon: -122.37)))
+}
 }
