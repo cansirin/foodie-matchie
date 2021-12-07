@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct TopView : View {
 	@State private var isLoggedIn = false
