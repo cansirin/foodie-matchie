@@ -25,3 +25,10 @@ In this project, we will be building a simple tinder app for restaurant that hel
 * Sign up an account
 * Map to the restaurant you like
 * Reastaurant address, rating, distance away from you, phone number, and price range
+
+# How to use: 
+
+* Clone the repository to your desktop
+* Open project folder
+* Open .workspace proj
+* Build and Run in XCODE Verison 12.2+
