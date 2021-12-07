@@ -19,7 +19,7 @@ struct Restaurant: Hashable, Codable {
 	var displayPhone: String
 	var distance: Double
 	var location: Location
-	var price: String
+	var price: String?
 }
 
 struct Location: Codable, Hashable {
@@ -34,28 +34,36 @@ struct Location: Codable, Hashable {
 struct RestaurantResponse: Codable {
 	enum CodingKeys: String, CodingKey {
 		case restaurants = "businesses"
+		case total
 	}
+	var total = 0
 	var restaurants: [Restaurant]
 }
 
 // DocuMenu API Types
 struct DocuMenuResponse: Codable {
 	enum CodingKeys: String, CodingKey {
-		case restaurant = "data"
+		case restaurants = "data"
 	}
 
-	var restaurant: [DocuMenuRestaurant]
+	var restaurants: [DocuMenuRestaurant]
 }
 
 
 struct DocuMenuRestaurant: Hashable, Codable {
+	var restaurantId: Int
 	var restaurantName: String
 	var restaurantPhone: String
-	var hours: String
-	var priceRange: String
+	var priceRangeNum: Int
 	var	address: Address
 	var cuisines: [String]
 	var menus: [MenuSections]
+	var geo: Coordinate
+}
+
+struct Coordinate: Hashable, Codable {
+	var lat: Double
+	var lon: Double
 }
 
 struct Address: Codable, Hashable {

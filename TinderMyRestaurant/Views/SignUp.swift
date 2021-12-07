@@ -24,10 +24,12 @@ struct SignUp: View {
             if error != nil {
                 print(error?.localizedDescription ?? "")
                 self.error = true
+								self.loading = false
             } else {
                 self.email = ""
                 self.password = ""
                 print("success")
+								self.loading = false
                 self.presentation.wrappedValue.dismiss()
             }
         }
