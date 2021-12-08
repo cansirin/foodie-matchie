@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoginPage: View {
     let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
-
+    
     @Environment(\.presentationMode) var presentation
     @ObservedObject var session: SessionStore
     @State var email = ""
@@ -18,7 +18,7 @@ struct LoginPage: View {
     @State var error = false
     @State var authenticationFailed = false
     @State var selection: String? = nil
-
+    
     func login() {
         loading = true
         error = false
@@ -36,9 +36,9 @@ struct LoginPage: View {
             }
         }
     }
-
-
-
+    
+    
+    
     var body: some View {
         GeometryReader { geometry in
             NavigationView {
@@ -50,7 +50,7 @@ struct LoginPage: View {
                         .background(lightGreyColor)
                         .cornerRadius(5.0)
                         .padding(.bottom, 20)
-
+                    
                     SecureField("Password", text: $password)
                         .autocapitalization(.none)
                         .padding()
@@ -84,50 +84,51 @@ struct LoginPage: View {
         }
     }
 }
-
-struct LoginPage_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginPage(session: SessionStore())
-    }
-}
-
-struct LoginButton: View {
-    var body: some View {
-        Text("LOGIN")
-            .bold()
-            .foregroundColor(.white)
-            .padding()
-            .frame(width: 220, height: 60)
-            .background(Color.blue)
-            .cornerRadius(15.0)
-            .padding(.top, 20)
-    }
-}
-
-struct RememberForgotView: View {
-    @State var selection:String? = nil
-    @ObservedObject var session: SessionStore
-    var body: some View {
-        HStack {
-            Spacer()
-            NavigationLink(destination: ForgotPassword(session: session), tag: "Forgot password", selection: $selection) {    HStack {
-                Button {
-                    self.selection = "Forgot password"
-                } label: {
-                    Text("Forgot password")
-                }
+    
+    struct LoginPage_Previews: PreviewProvider {
+        static var previews: some View {
+            LoginPage(session: SessionStore())
         }
-            }}
     }
-}
-
-
-struct SignInIllustration: View {
-    var body: some View {
-        Image("sign-in")
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(width: 300, height: 300)
-            .padding(.bottom, 50)
+    
+    struct LoginButton: View {
+        var body: some View {
+            Text("LOGIN")
+                .bold()
+                .foregroundColor(.white)
+                .padding()
+                .frame(width: 220, height: 60)
+                .background(Color.blue)
+                .cornerRadius(15.0)
+                .padding(.top, 20)
+        }
     }
-}
+    
+    struct RememberForgotView: View {
+        @State var selection:String? = nil
+        @ObservedObject var session: SessionStore
+        var body: some View {
+            HStack {
+                Spacer()
+                NavigationLink(destination: ForgotPassword(session: session), tag: "Forgot password", selection: $selection) {    HStack {
+                    Button {
+                        self.selection = "Forgot password"
+                    } label: {
+                        Text("Forgot password")
+                    }
+                }
+                }}
+        }
+    }
+    
+    
+    struct SignInIllustration: View {
+        var body: some View {
+            Image("sign-in")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 300, height: 300)
+                .padding(.bottom, 50)
+        }
+    }
+    
