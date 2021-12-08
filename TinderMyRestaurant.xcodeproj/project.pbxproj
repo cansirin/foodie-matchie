@@ -35,6 +35,7 @@
 		F7C316C62756FE470051290B /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C316C52756FE470051290B /* LocationViewModel.swift */; };
 		F7C316CA275706900051290B /* RestaurantFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C316C9275706900051290B /* RestaurantFetcher.swift */; };
 		FCC54E94275EFEBC005848D1 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC54E93275EFEBC005848D1 /* MapView.swift */; };
+		FCC54E9A27602B21005848D1 /* ColorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC54E9927602B21005848D1 /* ColorCodes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		F7C316C52756FE470051290B /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		F7C316C9275706900051290B /* RestaurantFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantFetcher.swift; sourceTree = "<group>"; };
 		FCC54E93275EFEBC005848D1 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		FCC54E9927602B21005848D1 /* ColorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCodes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				F717B80F2756D040005D1DFD /* Views */,
 				F717B8002756D003005D1DFD /* TinderMyRestaurantApp.swift */,
 				F717B8022756D003005D1DFD /* ContentView.swift */,
+				FCC54E9927602B21005848D1 /* ColorCodes.swift */,
 				F717B8042756D004005D1DFD /* Assets.xcassets */,
 				F717B8092756D004005D1DFD /* Info.plist */,
 				F717B8062756D004005D1DFD /* Preview Content */,
@@ -230,6 +233,7 @@
 				F751A61327581A6500F50C4F /* KeyboardResponder.swift in Sources */,
 				F7231F432759653C007B27B0 /* SingleRestaurant.swift in Sources */,
 				F717B8112756D04D005D1DFD /* RestaurantCard.swift in Sources */,
+				FCC54E9A27602B21005848D1 /* ColorCodes.swift in Sources */,
 				F7C316C62756FE470051290B /* LocationViewModel.swift in Sources */,
 				F751A6072757FE0000F50C4F /* Login.swift in Sources */,
 				F7C316C42756FB090051290B /* TopView.swift in Sources */,

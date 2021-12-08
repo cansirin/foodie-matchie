@@ -9,6 +9,7 @@ import SwiftUI
 import MapKit
 
 struct MapView: View{
+
 	@ObservedObject private var locationManager = LocationManager()
 	private var annotation: [AnnotationItem] = []
 //	@State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: self.latitude, longitude: -121.891054), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))
@@ -23,6 +24,7 @@ struct MapView: View{
 			Map(coordinateRegion: $locationManager.region, showsUserLocation: true, annotationItems: annotation) { item in
 				MapMarker(coordinate: item.coordinate)
 			}
+
     }
 }
 

@@ -13,7 +13,6 @@ struct Restaurants: View {
 	@ObservedObject var locationManager: LocationManager
 	@State private var selection: Int? = nil
 	@GestureState var translation: CGSize = .zero
-	
 
 
 	var body: some View {
@@ -22,7 +21,6 @@ struct Restaurants: View {
 		}
 
 		VStack {
-
 			TopView(session: session, fetcher: fetcher, locationManager: locationManager)
 			NavigationView {
 				VStack{
@@ -61,7 +59,7 @@ struct Restaurants: View {
 									}
 									}
 								}.background(
-									LinearGradient(gradient: Gradient(colors: [.white, .black]), startPoint: .top, endPoint: .bottom)
+                                    LinearGradient(gradient: Gradient(colors: [Color(ColorCodes().drv), Color(ColorCodes().rv)]), startPoint: .top, endPoint: .bottom)
 								)
 							}
 						} else {
@@ -93,7 +91,7 @@ struct LikeAndDislikeButtons: View {
 			}
 
 		}
-		.padding(.top)
+        .padding(.top)
 	}
 }
 
