@@ -12,28 +12,32 @@ struct TopView : View {
 	@State private var isLoggedIn = false
 	@State private var navigationIsShowing = false
 	@ObservedObject var session: SessionStore
-
+	@ObservedObject var fetcher: RestaurantFetcher
+	@ObservedObject var locationManager: LocationManager
+//    let drv = UIColor(red: 0.06, green: 0.00, blue: 0.17, alpha: 1.00)
+    
 	var body : some View{
 		HStack{
 			Spacer()
 			
-			Text("FoodieMatchie").bold().font(.largeTitle)
-
+            Text("FoodieMatchie").bold().font(.largeTitle).foregroundColor(.white)
 
 			Spacer()
 			if(session.session != nil){
-                SettingsIcon(session: session)
+                SettingsIcon(session: session, fetcher: fetcher, locationManager: locationManager)
 			} else {
 				LoginIcon(session: session)
 			}
 
-		}.padding()
+        }.padding().background(Color(ColorCodes().drv))
 	}
 }
 
 struct SettingsIcon: View {
 	@State private var isActive = false
     var session: SessionStore
+    var fetcher: RestaurantFetcher
+	var locationManager: LocationManager
     
 	var body: some View {
 		Button(action: {
@@ -41,7 +45,7 @@ struct SettingsIcon: View {
 		}) {
 			Image(systemName: "gearshape").resizable().frame(width: 35, height: 35)
 		}.foregroundColor(.gray).sheet(isPresented: $isActive) {
-			Settings(sessionStore: session)
+            Settings(sessionStore: session, fetcher: fetcher, locationManager: locationManager)
 		}
 	}
 }

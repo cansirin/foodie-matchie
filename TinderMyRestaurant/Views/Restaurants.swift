@@ -11,40 +11,59 @@ struct Restaurants: View {
 	@ObservedObject var fetcher: RestaurantFetcher
 	@ObservedObject var session: SessionStore
 	@ObservedObject var locationManager: LocationManager
-	@State private var selection: String? = nil
+	@State private var selection: Int? = nil
+	@GestureState var translation: CGSize = .zero
+//    let rv = UIColor(red: 0.14, green: 0.00, blue: 0.27, alpha: 1.00)
+//    let indigo = UIColor(red: 0.24, green: 0.04, blue: 0.42, alpha: 1.00)
 
 
 	var body: some View {
+		let dragGesture = DragGesture().updating($translation) { value, state, _ in
+			state = value.translation
+		}
+
 		VStack {
 
-			TopView(session: session)
+            TopView(session: session, fetcher: fetcher, locationManager: locationManager)
 			NavigationView {
 				VStack{
 					GeometryReader { geometry in
-						if(fetcher.restaurants.count > 0){
-							ForEach(fetcher.restaurants.indices, id: \.self) { index in
-								let restaurant = fetcher.restaurants[index]
+						if(fetcher.restaurantWithMenu.count > 0){
+							ForEach(fetcher.restaurantWithMenu.shuffled().indices, id: \.self) { index in
+								let restaurant = fetcher.restaurantWithMenu[index]
 								VStack {
 									RestaurantCard(restaurant: restaurant)
-										.animation(.spring()).padding(.bottom)
-
-									Spacer()
-
-									NavigationLink(destination: SingleRestaurant(fetcher: fetcher, address: restaurant.location.address1!), tag: restaurant.location.address1!, selection: $selection) {	HStack {
+										.animation(.interactiveSpring())
+										.offset(x: self.translation.width, y: 0)
+										.rotationEffect(.degrees(Double(self.translation.width / geometry.size.width)*25), anchor: .bottom)
+										.gesture(dragGesture.onEnded({ value in
+											let direction = detectDirection(value: value)
+											if(direction == .left){
+												fetcher.restaurantWithMenu = fetcher.restaurantWithMenu.filter { resta in
+													resta.restaurantName != restaurant.restaurantName
+												}
+											}
+											if(direction == .right){
+												self.selection = restaurant.restaurantId
+											}
+										}))
+									NavigationLink(destination: SingleRestaurant(locationManager: locationManager, restaurant: restaurant), tag: restaurant.restaurantId, selection: $selection) {	HStack {
 										Button {
 											self.selection = nil
-											fetcher.restaurants.remove(at: index)
+											fetcher.restaurantWithMenu.remove(at: index)
 										} label: {
-											Image(systemName: "xmark.circle").foregroundColor(.red).font(.system(size: 52))
+											Image(systemName: "xmark.circle").foregroundColor(.red).font(.system(size: 48))
 										}
 										Button {
-											self.selection = restaurant.location.address1
+											self.selection = restaurant.restaurantId
 										} label: {
-											Image(systemName: "heart.circle").foregroundColor(.green).font(.system(size: 52))
+											Image(systemName: "heart.circle").foregroundColor(.green).font(.system(size: 48))
 										}
-									}.padding(.bottom)
 									}
-								}
+									}
+								}.background(
+                                    LinearGradient(gradient: Gradient(colors: [Color(ColorCodes().drv), Color(ColorCodes().rv)]), startPoint: .top, endPoint: .bottom)
+								)
 							}
 						} else {
 							ActivityIndicator()
@@ -53,25 +72,8 @@ struct Restaurants: View {
 					}
 				}.navigationBarHidden(true)
 					.navigationBarTitle("Restaurants")
-					.edgesIgnoringSafeArea([.top, .bottom])
-				//				HStack {
-				//					Button {
-				//						self.selection = nil
-				//					} label: {
-				//						Image(systemName: "xmark.circle").foregroundColor(.red).font(.system(size: 52))
-				//					}
-				//					Button {
-				//						self.selection = "542 Green St"
-				//					} label: {
-				//						Image(systemName: "heart.circle").foregroundColor(.green).font(.system(size: 52))
-				//					}
-				//
-				//				}
-				//				.padding(.top)
-
-				//				LikeAndDislikeButtons()
-			}.onAppear {
-				fetcher.loadYelpAPI(latitude: locationManager.lastLocation.latitude, longitude: locationManager.lastLocation.longitude)
+					.navigationViewStyle(StackNavigationViewStyle())
+					.statusBar(hidden: true)
 			}
 		}
 	}
@@ -92,7 +94,7 @@ struct LikeAndDislikeButtons: View {
 			}
 
 		}
-		.padding(.top)
+        .padding(.top)
 	}
 }
 
