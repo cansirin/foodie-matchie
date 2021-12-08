@@ -19,17 +19,23 @@ struct Restaurants: View {
 		let dragGesture = DragGesture().updating($translation) { value, state, _ in
 			state = value.translation
 		}
+		let coords = ["latitude": locationManager.lastLocation.latitude,
+									"longitude": locationManager.lastLocation.longitude,
+									"distance": 5]
 
 		VStack {
 			TopView(session: session, fetcher: fetcher, locationManager: locationManager)
 			NavigationView {
 				VStack{
 					GeometryReader { geometry in
-						if(fetcher.restaurantWithMenu.count > 0){
-							ForEach(fetcher.restaurantWithMenu.shuffled().indices, id: \.self) { index in
+						if(!fetcher.isLoadingPage){
+							ForEach(fetcher.restaurantWithMenu.indices, id: \.self) { index in
 								let restaurant = fetcher.restaurantWithMenu[index]
 								VStack {
 									RestaurantCard(restaurant: restaurant)
+										.onDisappear() {
+											fetcher.loadMoreRestaurantIfNeeded(currentRestaurant: restaurant)
+										}
 										.animation(.interactiveSpring())
 										.offset(x: self.translation.width, y: 0)
 										.rotationEffect(.degrees(Double(self.translation.width / geometry.size.width)*25), anchor: .bottom)
@@ -49,15 +55,15 @@ struct Restaurants: View {
 											self.selection = nil
 											fetcher.restaurantWithMenu.remove(at: index)
 										} label: {
-											Image(systemName: "xmark.circle").foregroundColor(.red).font(.system(size: 48))
+											Image(systemName: "xmark.circle").foregroundColor(.red).font(.system(size: 64))
 										}
 										Button {
 											self.selection = restaurant.restaurantId
 										} label: {
-											Image(systemName: "heart.circle").foregroundColor(.green).font(.system(size: 48))
+											Image(systemName: "heart.circle").foregroundColor(.green).font(.system(size: 64))
 										}
 									}
-									}
+									}.padding(.bottom, 15)
 								}.background(
                                     LinearGradient(gradient: Gradient(colors: [Color(ColorCodes().drv), Color(ColorCodes().rv)]), startPoint: .top, endPoint: .bottom)
 								)

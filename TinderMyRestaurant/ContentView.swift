@@ -37,10 +37,9 @@ struct ContentView: View {
 								ActivityIndicator().foregroundColor(.green)
 							} else {
 								Restaurants(fetcher: fetcher, session: sessionStore, locationManager: locationManager).onAppear {
-									fetcher.loadDocuMenu(latitude: locationManager.lastLocation.latitude, longitude: locationManager.lastLocation.longitude, distance: 5)
+									fetcher.loadMoreRestaurantIfNeeded(currentRestaurant: nil)
 								}
 							}
-
 						default:
 							Text("Unexpected status")
 					}

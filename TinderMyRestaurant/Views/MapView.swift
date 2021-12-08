@@ -12,7 +12,6 @@ struct MapView: View{
 
 	@ObservedObject private var locationManager = LocationManager()
 	private var annotation: [AnnotationItem] = []
-//	@State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: self.latitude, longitude: -121.891054), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))
 
 	init(latitude: Double, longitude: Double) {
 		self.annotation.append(AnnotationItem(coordinate: CLLocationCoordinate2D(
