@@ -35,7 +35,6 @@
 		F7C316C62756FE470051290B /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C316C52756FE470051290B /* LocationViewModel.swift */; };
 		F7C316CA275706900051290B /* RestaurantFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C316C9275706900051290B /* RestaurantFetcher.swift */; };
 		FCC54E94275EFEBC005848D1 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC54E93275EFEBC005848D1 /* MapView.swift */; };
-		FCC54E96275FFB2A005848D1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC54E95275FFB2A005848D1 /* MapViewController.swift */; };
 		FCC54E9A27602B21005848D1 /* ColorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC54E9927602B21005848D1 /* ColorCodes.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,9 +66,7 @@
 		F7C316C52756FE470051290B /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		F7C316C9275706900051290B /* RestaurantFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantFetcher.swift; sourceTree = "<group>"; };
 		FCC54E93275EFEBC005848D1 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		FCC54E95275FFB2A005848D1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FCC54E9927602B21005848D1 /* ColorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCodes.swift; sourceTree = "<group>"; };
-    
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +116,6 @@
 				F751A5E42757400600F50C4F /* LocationManager.swift */,
 				F751A6082758048700F50C4F /* SessionStore.swift */,
 				F751A61227581A6500F50C4F /* KeyboardResponder.swift */,
-				FCC54E95275FFB2A005848D1 /* MapViewController.swift */,
 				F7231F3E27587F34007B27B0 /* Launch Screen.storyboard */,
 			);
 			path = TinderMyRestaurant;
@@ -245,7 +241,6 @@
 				F751A5ED2757431500F50C4F /* Restaurants.swift in Sources */,
 				F751A5E72757403600F50C4F /* LocationRequest.swift in Sources */,
 				F717B8032756D003005D1DFD /* ContentView.swift in Sources */,
-				FCC54E96275FFB2A005848D1 /* MapViewController.swift in Sources */,
 				F751A5E52757400600F50C4F /* LocationManager.swift in Sources */,
 				F751A6092758048700F50C4F /* SessionStore.swift in Sources */,
 				F751A60B2758083D00F50C4F /* Settings.swift in Sources */,
