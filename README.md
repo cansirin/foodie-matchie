@@ -18,15 +18,24 @@ In this project, we will be building a simple tinder app for restaurant that hel
 * Restaurant Menu
 * Display correctly for each restaurant
 * Picture of the restaurant or what they offer
+<<<<<<< HEAD
 * Like and dislike button
 * Swipe left and right
+=======
+* Like and dislike
+>>>>>>> a659713 (the actual working verison)
 
 # Nice to have features:
 
 * Sign up an account
+<<<<<<< HEAD
 * Map to the restaurant you like (incomplete)
 * Restaurant address, rating, distance away from you, phone number, and price range
 * Limit the distance of restaurants near you from your location as you want
+=======
+* Map to the restaurant you like
+* Reastaurant address, rating, distance away from you, phone number, and price range
+>>>>>>> a659713 (the actual working verison)
 
 # How to use: 
 

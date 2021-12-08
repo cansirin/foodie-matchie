@@ -19,8 +19,7 @@ struct TopView : View {
 		HStack{
 			Spacer()
 			
-			Text("FoodieMatchie").bold().font(.largeTitle)
-
+            Text("FoodieMatchie").bold().font(.largeTitle).foregroundColor(.white)
 
 			Spacer()
 			if(session.session != nil){
@@ -29,7 +28,7 @@ struct TopView : View {
 				LoginIcon(session: session)
 			}
 
-		}.padding()
+        }.padding().background(Color(ColorCodes().drv))
 	}
 }
 
