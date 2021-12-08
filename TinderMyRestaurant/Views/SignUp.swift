@@ -24,34 +24,73 @@ struct SignUp: View {
             if error != nil {
                 print(error?.localizedDescription ?? "")
                 self.error = true
-								self.loading = false
+                self.loading = false
             } else {
                 self.email = ""
                 self.password = ""
                 print("success")
-								self.loading = false
+                self.loading = false
                 self.presentation.wrappedValue.dismiss()
             }
         }
     }
     var body: some View{
         NavigationView{
-            ZStack{
+            VStack() {
+                Text("Sign Up")
+                    .font(.largeTitle).foregroundColor(Color.white)
+//                    .padding([.top,.bottom], 20)
+                    .shadow(radius: 10.0, x: 20, y: 10)
                 
-                VStack(alignment: .center, spacing: 22, content:{
-                    //Image
-                    SignInIllustration()
-                    TextField("Email", text: $email).padding(.leading, 12).font(.system(size: 30)).autocapitalization(.none).background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)).cornerRadius(5.0)
-                    SecureField("Password", text: $password).padding(.leading, 12).font(.system(size: 30)).autocapitalization(.none).background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)).cornerRadius(5.0)
-                    Button(action: { signup() }) {
-                        Text("Sign Up")
-                    }  
-                })
-            }.padding()
-            .navigationBarTitle("Sign Up").multilineTextAlignment(.leading)
+                Image("signupicon")
+                    .resizable()
+                    .frame(width: 250, height: 250)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Color.white, lineWidth: 4))
+                    .shadow(radius: 10.0, x: 20, y: 10)
+                    .padding(.bottom, 20)
+                
+                VStack(alignment: .leading, spacing: 15) {
+                    TextField("Email", text: self.$email)
+                        .autocapitalization(.none)
+                        .padding()
+                        .background(Color.signU)
+                        .cornerRadius(20.0)
+                        .shadow(radius: 10.0, x: 20, y: 10)
+                    
+                    SecureField("Password", text: self.$password)
+                        .autocapitalization(.none)
+                        .padding()
+                        .background(Color.signU)
+                        .cornerRadius(20.0)
+                        .shadow(radius: 10.0, x: 20, y: 10)
+                }.padding([.leading, .trailing], 27.5)
+                
+                Button(action: { signup() }) {
+                    Text("Sign Up")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(width: 300, height: 50)
+                        .background(Color(ColorCodes().drv))
+                        .cornerRadius(15.0)
+                        .shadow(radius: 10.0, x: 20, y: 10)
+                }.padding(.top, 50)
+                Spacer()
+            }
+            .background(
+                LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
+                    .edgesIgnoringSafeArea(.all))
         }
     }
 }
+
+extension Color {
+    static var signU: Color {
+        return Color(red: 220.0/255.0, green: 230.0/255.0, blue: 230.0/255.0, opacity: 1.0)
+    }
+}
+
 struct SignUp_Previews: PreviewProvider {
     static var previews: some View {
         SignUp(session: SessionStore())
