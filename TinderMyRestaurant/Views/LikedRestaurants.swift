@@ -30,18 +30,18 @@ struct LikedRestaurants: View {
     
     var body: some View {
         VStack{
-            Button("Remove all") {
-                deleteRestaurantLikes()
+            Button(action:{deleteRestaurantLikes()}) {
+                Text("Remove all").foregroundColor(.white)
             }
             
             List{
                 ForEach(likes) { like in
-                    Text(like.restaurantName ?? "Unknown")
+                    Text(like.restaurantName ?? "Unknown").foregroundColor(Color(ColorCodes().pur))
                 }
                 .onDelete(perform: deleteRestaurantLike)
             }
         }.background(
-            LinearGradient(gradient: Gradient(colors: [Color(ColorCodes().mauve), Color(ColorCodes().pur)]), startPoint: .top, endPoint: .bottom)
+            LinearGradient(gradient: Gradient(colors: [Color(ColorCodes().fv), Color(ColorCodes().pur)]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all))
     }
     
