@@ -68,7 +68,7 @@ struct RestaurantCard: View {
 
 			}
 			.overlay(Divider(), alignment: .top)
-			.background(Color.white)
+			.background(Color(red: 250, green: 250, blue: 250))
 
 			.shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
 			.shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
@@ -91,7 +91,7 @@ func detectDirection(value: DragGesture.Value) -> SwipeDirection {
 		return .left
 	}
 	return .none
-	}
+}
 
 enum SwipeDirection: String {
 	case left, right, none

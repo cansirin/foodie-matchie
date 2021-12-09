@@ -58,6 +58,6 @@ public class RestaurantFetcher: ObservableObject {
 				return self.restaurantWithMenu + response.restaurants.shuffled()
 			})
 			.catch({_ in Just(self.restaurantWithMenu)})
-			.assign(to: &$restaurantWithMenu)
+							.assign(to: &$restaurantWithMenu)
 	}
 }

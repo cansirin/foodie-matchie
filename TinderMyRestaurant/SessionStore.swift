@@ -25,7 +25,7 @@ class SessionStore : ObservableObject {
 					displayName: user.displayName,
 					email: user.email
 				)
-				print("session: \(self.session?.email) ------------ EMAIL")
+				print("session: \(self.session?.displayName) ------------ EMAIL")
 			} else {
 				// if we don't have a user, set our session to nil
 				self.session = nil

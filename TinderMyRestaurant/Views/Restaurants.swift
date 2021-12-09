@@ -6,30 +6,47 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 struct Restaurants: View {
 	@ObservedObject var fetcher: RestaurantFetcher
 	@ObservedObject var session: SessionStore
 	@ObservedObject var locationManager: LocationManager
-	@Environment(\.managedObjectContext) var moc
 	@State private var selection: Int? = nil
 	@GestureState var translation: CGSize = .zero
-
+	
 	func removeRestaurant(restaurant: DocuMenuRestaurant) {
 		fetcher.restaurantWithMenu = fetcher.restaurantWithMenu.filter { resta in
 			resta.restaurantName != restaurant.restaurantName
 		}
 	}
-
-
+	
+	func saveLikedRestaurants(restaurantName: String) {
+		let data = ["name": restaurantName]
+		if(session.session != nil){
+			let docRef = Firestore.firestore().document("likes/\(session.session?.uid ?? "empty")/restaurants/\(restaurantName)")
+			print("setting data")
+			docRef.setData(data) { (error) in
+				if let error = error {
+					print("error: \(error)")
+				} else {
+					print("data uploaded successfully")
+				}
+			}
+		} else {
+			return
+		}
+	}
+	
+	
 	var body: some View {
 		let dragGesture = DragGesture().updating($translation) { value, state, _ in
 			state = value.translation
 		}
 		VStack {
-            Spacer()
-                .frame(height: 50)
-            TopView(session: session, fetcher: fetcher, locationManager: locationManager)
+			Spacer()
+				.frame(height: 50)
+			TopView(session: session, fetcher: fetcher, locationManager: locationManager)
 			NavigationView {
 				VStack{
 					GeometryReader { geometry in
@@ -51,9 +68,7 @@ struct Restaurants: View {
 											}
 											if(direction == .right){
 												self.selection = restaurant.restaurantId
-												let likedRestaurant = RestaurantLike(context: moc)
-												likedRestaurant.restaurantName = restaurant.restaurantName
-												try? moc.save()
+												saveLikedRestaurants(restaurantName: restaurant.restaurantName)
 											}
 										}))
 									NavigationLink(destination: SingleRestaurant(locationManager: locationManager, restaurant: restaurant), tag: restaurant.restaurantId, selection: $selection) {	HStack {
@@ -64,10 +79,8 @@ struct Restaurants: View {
 											Image(systemName: "xmark.circle").foregroundColor(.red).font(.system(size: 64))
 										}
 										Button {
+											saveLikedRestaurants(restaurantName: restaurant.restaurantName)
 											self.selection = restaurant.restaurantId
-											let likedRestaurant = RestaurantLike(context: moc)
-											likedRestaurant.restaurantName = restaurant.restaurantName
-											try? moc.save()
 										} label: {
 											Image(systemName: "heart.circle").foregroundColor(.green).font(.system(size: 64))
 										}
@@ -87,7 +100,7 @@ struct Restaurants: View {
 					.statusBar(hidden: true)
 			}
 		}
-        .background(Color(ColorCodes().fv)).ignoresSafeArea()
+		.background(Color(ColorCodes().fv)).ignoresSafeArea()
 	}
 }
 
@@ -104,7 +117,7 @@ struct LikeAndDislikeButtons: View {
 			} label: {
 				Image(systemName: "heart.circle").foregroundColor(.green).font(.system(size: 52))
 			}
-
+			
 		}
 		.padding(.top)
 	}

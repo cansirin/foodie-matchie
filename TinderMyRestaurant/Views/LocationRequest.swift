@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LocationRequestView: View {
 	@ObservedObject var locationManager: LocationManager
-
+	
 	var body: some View {
 		VStack {
 			Image(systemName: "location.circle").resizable().frame(width: 100, height: 100, alignment: .center).foregroundColor(.blue)

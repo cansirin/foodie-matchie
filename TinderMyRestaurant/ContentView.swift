@@ -22,7 +22,7 @@ struct ContentView: View {
 			VStack {
 				VStack {
 					switch locationManager.authStatus{
-						
+
 						case .notDetermined:
 							AnyView(LocationRequestView(locationManager: locationManager))
 
