@@ -73,7 +73,7 @@ struct Restaurants: View {
 										}
 									}
 									}.padding(.bottom, 15)
-								}.background(LinearGradient(gradient: Gradient(colors: [Color(ColorCodes().drv), Color(ColorCodes().pur)]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+								}.background(LinearGradient(gradient: Gradient(colors: [Color(ColorCodes().pur), Color(ColorCodes().rv)]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
 								)
 							}
 						} else {
@@ -87,7 +87,7 @@ struct Restaurants: View {
 					.statusBar(hidden: true)
 			}
 		}
-        .background(Color(ColorCodes().drv)).ignoresSafeArea()
+        .background(Color(ColorCodes().fv)).ignoresSafeArea()
 	}
 }
 
