@@ -42,12 +42,13 @@ struct SignUp: View {
 //                    .padding([.top,.bottom], 20)
                     .shadow(radius: 10.0, x: 20, y: 10)
                 
-                Image("signupicon")
+                Image(systemName: "person.fill")
                     .resizable()
-                    .frame(width: 250, height: 250)
+                    .frame(width: 200, height: 200)
                     .clipShape(Circle())
                     .overlay(Circle().stroke(Color.white, lineWidth: 4))
                     .shadow(radius: 10.0, x: 20, y: 10)
+                    .foregroundColor(.white)
                     .padding(.bottom, 20)
                 
                 VStack(alignment: .leading, spacing: 15) {

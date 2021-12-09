@@ -41,11 +41,6 @@ struct RestaurantCard: View {
 //						Text(String(format: "%.2f", restaurant.distance * 0.000621371) + " mile ")
 //							.font(.headline).preferredColorScheme(.light)
 					}
-//					HStack{ // phone number
-//						Image(systemName: "phone.circle").font(.title).foregroundColor(.green)
-//						Text(restaurant.restaurantPhone)
-//							.font(.headline).preferredColorScheme(.light)
-//					}
 					HStack{ // price tag
 						Image(systemName: "dollarsign.circle").font(.title).foregroundColor(.green)
 						Text("\(restaurant.priceRangeNum)$")
@@ -57,7 +52,6 @@ struct RestaurantCard: View {
 			}
 			.overlay(Divider(), alignment: .top)
 			.background(Color.white)
-//			.cornerRadius(10.0)
 
 			.shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
 			.shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)

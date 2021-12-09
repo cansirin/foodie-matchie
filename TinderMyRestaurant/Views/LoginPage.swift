@@ -45,16 +45,17 @@ struct LoginPage: View {
             VStack() {
                 Text("Log In")
                     .font(.largeTitle).foregroundColor(Color.white)
-                    .padding([.top, .bottom], 40)
+                    .padding([.top, .bottom], 30)
                     .shadow(radius: 10.0, x: 20, y: 10)
                 
-                Image("loginicon")
+                Image(systemName: "person.fill")
                     .resizable()
-                    .frame(width: 250, height: 250)
+                    .frame(width: 200, height: 200)
                     .clipShape(Circle())
                     .overlay(Circle().stroke(Color.white, lineWidth: 4))
                     .shadow(radius: 10.0, x: 20, y: 10)
-                    .padding(.bottom, 50)
+                    .foregroundColor(.white)
+                    .padding(.bottom, 40)
                 
                 VStack(alignment: .leading, spacing: 15) {
                     TextField("Email", text: self.$email)
@@ -72,9 +73,9 @@ struct LoginPage: View {
                         .shadow(radius: 10.0, x: 20, y: 10)
                     RememberForgotView( selection: selection, session: session)
                     if authenticationFailed {
-                        Text("Information not correct. Try again.")
+                        Text("Information not correct. Try again.").bold()
                             .offset(x: 30, y: 5)
-                            .foregroundColor(.red)
+                            .foregroundColor(.white)
                     }
                 }.padding([.leading, .trailing], 27.5)
                 
@@ -87,17 +88,17 @@ struct LoginPage: View {
                         .background(Color(ColorCodes().drv))
                         .cornerRadius(15.0)
                         .shadow(radius: 10.0, x: 20, y: 10)
-                }.padding(.top, 50)
+                }.padding(.top, 30)
                 
                 Spacer()
                 NavigationLink(destination: SignUp(session: session), tag: "Sign Up", selection: $selection){
                     HStack(spacing: 0) {
-                        Text("Don't have an account? ").foregroundColor(.red).bold()
+                        Text("Don't have an account? ").foregroundColor(.white).fontWeight(.heavy)
                         Button(action: {self.selection = "Sign Up"}) {
                             Text("Sign Up")
-                                .foregroundColor(.black).bold()
+                                .foregroundColor(.black).fontWeight(.heavy)
                         }
-                    }
+                    }.padding(.bottom, 50)
                 }
             }
             .background(

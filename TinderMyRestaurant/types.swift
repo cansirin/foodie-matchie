@@ -44,8 +44,9 @@ struct RestaurantResponse: Codable {
 struct DocuMenuResponse: Codable {
 	enum CodingKeys: String, CodingKey {
 		case restaurants = "data"
+		case morePages
 	}
-
+	var morePages: Bool
 	var restaurants: [DocuMenuRestaurant]
 }
 

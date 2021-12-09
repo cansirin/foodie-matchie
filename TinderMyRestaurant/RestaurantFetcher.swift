@@ -8,68 +8,56 @@
 import CoreLocation
 import Foundation
 import SwiftUI
+import Combine
 
 public class RestaurantFetcher: ObservableObject {
-	@Published var restaurants = [Restaurant]()
 	@Published var restaurantWithMenu = [DocuMenuRestaurant]()
-	var offset = 1
-	var limit = 50
+	@ObservedObject var locationManager = LocationManager()
+	@Published var isLoadingPage = false
+	private var currentPage = 1
+	private var canLoadMorePages = true
 
-	func loadYelpAPI(latitude: Double, longitude: Double){
-		let apiKey = "Ib4kP9Ch99mkkO70e-YkIR_llFyCo7QENlfGwE0ob6Yr0kAl_uSpSh5iinPcTtroLVd5Ira9nWg-EBVeTjjefS14Y9iYoWTrUsVX5-OFz8VW8zwCW62uqWAnV9iEYXYx"
-		let url = URL(string: "https://api.yelp.com/v3/businesses/search?latitude=\(latitude)&longitude=\(longitude)&radius=40000&offset=\(offset)&limit=\(limit)")!
-		var request = URLRequest(url: url)
-		request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
-		request.httpMethod = "GET"
-
-		URLSession.shared.dataTask(with: request) { (data, response, error) in
-			do {
-				if let d = data {
-					let decoder = JSONDecoder()
-					decoder.keyDecodingStrategy = .convertFromSnakeCase
-					let decodedLists = try decoder.decode(RestaurantResponse.self, from: d)
-					DispatchQueue.main.async {
-						self.restaurants = decodedLists.restaurants
-					}
-				} else {
-					print("No data")
-				}
-			} catch {
-				print("Unexpected Error: \(error)")
-			}
-		}.resume()
+	func loadMoreRestaurantIfNeeded(currentRestaurant: DocuMenuRestaurant?) {
+		guard (currentRestaurant != nil) else {
+			loadDocuMenu(latitude: locationManager.lastLocation.latitude, longitude: locationManager.lastLocation.longitude, distance: 5)
+			return
+		}
+		if restaurantWithMenu.count < 5 {
+			loadDocuMenu(latitude: locationManager.lastLocation.latitude, longitude: locationManager.lastLocation.longitude, distance: 5)
+		}
 	}
 
 	func loadDocuMenu(latitude: Double, longitude: Double, distance: Int){
+		guard !self.isLoadingPage && self.canLoadMorePages else {
+			return
+		}
+		self.isLoadingPage = true
 		let headers = [
 			"x-api-key": "e529f442ec7db3ace50cfff0df7d5332",
 			"x-rapidapi-host": "documenu.p.rapidapi.com",
 			"x-rapidapi-key": "92a76aa3f4msh69933f14b31c7d4p108ed8jsnf6c71a5f5108"
 		]
-		print(latitude, longitude, distance)
-		let originalString = "https://documenu.p.rapidapi.com/restaurants/search/geo?lat=\(latitude)&lon=\(longitude)&distance=\(distance)&fullmenu=true"
-		guard let urlString = originalString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+		let urlString = "https://documenu.p.rapidapi.com/restaurants/search/geo?lat=\(latitude)&lon=\(longitude)&distance=\(distance)&page=\(currentPage)&fullmenu=true"
 		let url = URL(string: urlString)!
-
 		var request = URLRequest(url: url)
 		request.httpMethod = "GET"
 		request.allHTTPHeaderFields = headers
 
-		URLSession.shared.dataTask(with: request) { (data, response, error) in
-			do {
-				if let d = data {
-					let decoder = JSONDecoder()
-					decoder.keyDecodingStrategy = .convertFromSnakeCase
-					let decodedLists = try decoder.decode(DocuMenuResponse.self, from: d)
-					DispatchQueue.main.async {
-						self.restaurantWithMenu = decodedLists.restaurants
-					}
-				} else {
-					print("No data")
-				}
-			} catch {
-				print("Unexpected Error: \(error)")
-			}
-		}.resume()
+		let decoder = JSONDecoder()
+		decoder.keyDecodingStrategy = .convertFromSnakeCase
+		URLSession.shared.dataTaskPublisher(for: request)
+			.map(\.data)
+			.decode(type: DocuMenuResponse.self, decoder: decoder)
+			.receive(on: DispatchQueue.main)
+			.handleEvents(receiveOutput: {response in
+				self.canLoadMorePages = response.morePages
+				self.isLoadingPage = false
+				self.currentPage += 1
+			})
+			.map({ response in
+				return self.restaurantWithMenu + response.restaurants.shuffled()
+			})
+			.catch({_ in Just(self.restaurantWithMenu)})
+			.assign(to: &$restaurantWithMenu)
 	}
 }
