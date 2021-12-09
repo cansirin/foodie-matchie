@@ -11,18 +11,21 @@ struct Restaurants: View {
 	@ObservedObject var fetcher: RestaurantFetcher
 	@ObservedObject var session: SessionStore
 	@ObservedObject var locationManager: LocationManager
+	@Environment(\.managedObjectContext) var moc
 	@State private var selection: Int? = nil
 	@GestureState var translation: CGSize = .zero
+
+	func removeRestaurant(restaurant: DocuMenuRestaurant) {
+		fetcher.restaurantWithMenu = fetcher.restaurantWithMenu.filter { resta in
+			resta.restaurantName != restaurant.restaurantName
+		}
+	}
 
 
 	var body: some View {
 		let dragGesture = DragGesture().updating($translation) { value, state, _ in
 			state = value.translation
 		}
-        let coords = ["latitude": locationManager.lastLocation.latitude,
-                                            "longitude": locationManager.lastLocation.longitude,
-                                            "distance": 5]
-
 		VStack {
             Spacer()
                 .frame(height: 50)
@@ -34,7 +37,7 @@ struct Restaurants: View {
 							ForEach(fetcher.restaurantWithMenu.indices, id: \.self) { index in
 								let restaurant = fetcher.restaurantWithMenu[index]
 								VStack {
-									RestaurantCard(restaurant: restaurant)
+									RestaurantCard(restaurant: restaurant, locationManager: locationManager)
 										.onDisappear() {
 											fetcher.loadMoreRestaurantIfNeeded(currentRestaurant: restaurant)
 										}
@@ -44,30 +47,33 @@ struct Restaurants: View {
 										.gesture(dragGesture.onEnded({ value in
 											let direction = detectDirection(value: value)
 											if(direction == .left){
-												fetcher.restaurantWithMenu = fetcher.restaurantWithMenu.filter { resta in
-													resta.restaurantName != restaurant.restaurantName
-												}
+												removeRestaurant(restaurant: restaurant)
 											}
 											if(direction == .right){
 												self.selection = restaurant.restaurantId
+												let likedRestaurant = RestaurantLike(context: moc)
+												likedRestaurant.restaurantName = restaurant.restaurantName
+												try? moc.save()
 											}
 										}))
 									NavigationLink(destination: SingleRestaurant(locationManager: locationManager, restaurant: restaurant), tag: restaurant.restaurantId, selection: $selection) {	HStack {
 										Button {
 											self.selection = nil
-											fetcher.restaurantWithMenu.remove(at: index)
+											removeRestaurant(restaurant: restaurant)
 										} label: {
 											Image(systemName: "xmark.circle").foregroundColor(.red).font(.system(size: 64))
 										}
 										Button {
 											self.selection = restaurant.restaurantId
+											let likedRestaurant = RestaurantLike(context: moc)
+											likedRestaurant.restaurantName = restaurant.restaurantName
+											try? moc.save()
 										} label: {
 											Image(systemName: "heart.circle").foregroundColor(.green).font(.system(size: 64))
 										}
 									}
 									}.padding(.bottom, 15)
-								}.background(
-                                    LinearGradient(gradient: Gradient(colors: [Color(ColorCodes().drv), Color(ColorCodes().pur)]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+								}.background(LinearGradient(gradient: Gradient(colors: [Color(ColorCodes().fv), Color(ColorCodes().pur)]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
 								)
 							}
 						} else {
@@ -81,7 +87,7 @@ struct Restaurants: View {
 					.statusBar(hidden: true)
 			}
 		}
-        .background(Color(ColorCodes().drv)).ignoresSafeArea()
+        .background(Color(ColorCodes().fv)).ignoresSafeArea()
 	}
 }
 
@@ -100,7 +106,7 @@ struct LikeAndDislikeButtons: View {
 			}
 
 		}
-        .padding(.top)
+		.padding(.top)
 	}
 }
 
