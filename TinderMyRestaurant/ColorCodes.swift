@@ -14,4 +14,5 @@ struct ColorCodes{
     let pur = UIColor(red: 0.35, green: 0.09, blue: 0.60, alpha: 1.00)
     let mauve = UIColor(red: 0.88, green: 0.67, blue: 1.00, alpha: 1.00)
     let heli = UIColor(red: 0.78, green: 0.49, blue: 1.00, alpha: 1.00)
+    let fv = UIColor(red: 0.48, green: 0.17, blue: 0.75, alpha: 1.00)
 }

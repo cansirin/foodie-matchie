@@ -65,7 +65,7 @@ struct Restaurants: View {
 									}
 									}.padding(.bottom, 15)
 								}.background(
-                                    LinearGradient(gradient: Gradient(colors: [Color(ColorCodes().drv), Color(ColorCodes().rv)]), startPoint: .top, endPoint: .bottom)
+                                    LinearGradient(gradient: Gradient(colors: [Color(ColorCodes().drv), Color(ColorCodes().rv)]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
 								)
 							}
 						} else {

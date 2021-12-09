@@ -15,28 +15,27 @@ struct Settings: View {
     
     var body: some View {
         VStack{
-            Section(header: Text("Account")){
-                
+            Spacer()
+                .frame(height: 80)
+            Section(header: Text("Account").font(.title).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)){
                 Image(systemName: "person").resizable().frame(width: 50, height: 50)
                 Text("Profile Setting").font(.largeTitle)
-            }.foregroundColor(.purple).frame(width: 300)
-        
+            }.foregroundColor(.white).frame(width: 300)
+            .padding(3)
             
             VStack(){
-                Slider(value: $sliderValue, in: 0...20).accentColor(Color.yellow)
-                Text("Current distance from you: \(Int(sliderValue))")
+                Slider(value: $sliderValue, in: 0...20).accentColor(Color(.white)).background(Color(ColorCodes().indigo)).cornerRadius(30)
+                Text("Current distance from you: \(Int(sliderValue))").fontWeight(.heavy)
                 
             }.padding()
-                .foregroundColor(Color.purple  )
+            .foregroundColor(Color(.white))
             
             VStack{
-                Button("Save this distance", action: {fetcher.loadDocuMenu(latitude: locationManager.lastLocation.latitude, longitude: locationManager.lastLocation.longitude, distance: Int(sliderValue))} ).foregroundColor(Color.white)
-                    
-                    
+                Button("Save this distance", action: {fetcher.loadDocuMenu(latitude: locationManager.lastLocation.latitude, longitude: locationManager.lastLocation.longitude, distance: Int(sliderValue))}
+                ).foregroundColor(Color.white)
             }.padding(10)
-                .background(Color.black)
-                .border(Color.yellow)
-                .cornerRadius(50)
+            .background(Color(ColorCodes().indigo))
+            .cornerRadius(50).padding()
             Spacer()
             HStack{
                 Section(){
@@ -45,12 +44,15 @@ struct Settings: View {
                 }).padding()
                     .font(.largeTitle)
                     .frame(alignment: .center)
-                    .foregroundColor(Color.red)
+                    .foregroundColor(Color.white)
             }.frame( alignment: .center)
-                .background(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                .background(Color(ColorCodes().indigo))
+                .cornerRadius(30.0)
             }
+            Spacer()
             
         }
+        .background(Color(ColorCodes().fv)).ignoresSafeArea()
     }
 }
                      
