@@ -37,7 +37,7 @@ struct Settings: View {
 					.cornerRadius(50).padding()
 
 				VStack{
-					Slider(value: $sliderValue, in: 0...20).accentColor(Color(.white)).background(Color(ColorCodes().indigo)).cornerRadius(30)
+					Slider(value: $sliderValue, in: 5...20).accentColor(Color(.white)).background(Color(ColorCodes().indigo)).cornerRadius(30)
 					Text("Current distance from you: \(Int(sliderValue))").fontWeight(.heavy)
 
 				}.padding()

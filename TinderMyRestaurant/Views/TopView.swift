@@ -28,7 +28,7 @@ struct TopView : View {
 				LoginIcon(session: session)
 			}
 
-        }.padding().background(Color(ColorCodes().drv))
+        }.padding().background(Color(ColorCodes().fv))
 	}
 }
 
