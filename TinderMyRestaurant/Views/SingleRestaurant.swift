@@ -37,12 +37,12 @@ struct SingleRestaurant: View {
 				}
 			}
 		}
-
 	}
 }
 
 struct SingleRestaurant_Previews: PreviewProvider {
 	static var previews: some View {
-		SingleRestaurant(locationManager: LocationManager(), restaurant: DocuMenuRestaurant(restaurantId: 1, restaurantName: "Can's Place", restaurantPhone: "5555555555", priceRangeNum: 1, address: Address(city: "", state: "", postalCode: "", street: "", formatted: ""), cuisines: [], menus: [], geo: Coordinate(lat: 37.89, lon: -122.37)))
+
+		SingleRestaurant(locationManager: LocationManager(), restaurant: DocuMenuRestaurant(restaurantId: 1, restaurantName: "Can's Place", restaurantPhone: "5555555555", restaurantWebsite: "", priceRangeNum: 1, address: Address(city: "", state: "", postalCode: "", street: "", formatted: ""), cuisines: [], menus: [], geo: Coordinate(lat: 37.89, lon: -122.37)))
 }
 }

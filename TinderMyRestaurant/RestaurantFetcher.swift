@@ -33,7 +33,7 @@ public class RestaurantFetcher: ObservableObject {
 		}
 		self.isLoadingPage = true
 		let headers = [
-			"x-api-key": "e529f442ec7db3ace50cfff0df7d5332",
+			"x-api-key": "7b221218fcc362fbc5de096aa4386cbc",
 			"x-rapidapi-host": "documenu.p.rapidapi.com",
 			"x-rapidapi-key": "92a76aa3f4msh69933f14b31c7d4p108ed8jsnf6c71a5f5108"
 		]
