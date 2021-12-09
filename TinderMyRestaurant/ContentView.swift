@@ -34,7 +34,7 @@ struct ContentView: View {
 
 						case .authorizedAlways, .authorizedWhenInUse:
 							if(locationManager.lastLocation.latitude == 0 || locationManager.lastLocation.longitude == 0){
-								ActivityIndicator().foregroundColor(.green)
+								ActivityIndicator()
 							} else {
 								Restaurants(fetcher: fetcher, session: sessionStore, locationManager: locationManager).onAppear {
 									fetcher.loadMoreRestaurantIfNeeded(currentRestaurant: nil)

@@ -21,7 +21,9 @@ struct Settings: View {
 					.frame(height: 80)
 				Section(header: Text("Account").font(.title).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)){
 					Image(systemName: "person").resizable().frame(width: 50, height: 50)
-					Text("Profile Settings").font(.largeTitle)
+					Text(sessionStore.session?.email ?? "").font(.subheadline).foregroundColor(.orange)
+//					Text("cansirin12@gmail.com").font(.subheadline).colorInvert()
+
 				}.foregroundColor(.white).frame(width: 300)
 					.padding(3)
 
@@ -37,6 +39,7 @@ struct Settings: View {
 					.cornerRadius(50).padding()
 
 				VStack{
+					Text("Settings").font(.title)
 					Slider(value: $sliderValue, in: 5...20).accentColor(Color(.white)).background(Color(ColorCodes().indigo)).cornerRadius(30)
 					Text("Current distance from you: \(Int(sliderValue))").fontWeight(.heavy)
 
