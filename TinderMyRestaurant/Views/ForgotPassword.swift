@@ -18,7 +18,7 @@ struct ForgotPassword : View {
 	
 	var body: some View {
 		if(loading){
-			ActivityIndicator().foregroundColor(.green)
+			ActivityIndicator()
 		} else {
 			VStack(){
 				Text("Forgot Password")

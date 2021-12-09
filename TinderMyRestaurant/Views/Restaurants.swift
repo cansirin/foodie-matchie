@@ -91,7 +91,6 @@ struct Restaurants: View {
 							}
 						} else {
 							ActivityIndicator()
-								.foregroundColor(.green)
 						}
 					}
 				}.navigationBarHidden(true)

@@ -21,15 +21,15 @@ struct ActivityIndicator: View {
 				}
 			}
 			.aspectRatio(1, contentMode: .fit)
-			.foregroundColor(Color(ColorCodes().indigo))
+			.foregroundColor(Color(ColorCodes().mauve))
 			.onAppear {
 				self.isAnimating = true
 			}
-			Text("Loading").foregroundColor(Color(ColorCodes().indigo))
+			Text("Loading").foregroundColor(Color(ColorCodes().mauve))
 		}
 
 	}
-	
+
 	func calcScale(index: Int) -> CGFloat {
 		return (!isAnimating ? 1 - CGFloat(Float(index)) / 5 : 0.2 + CGFloat(index) / 5)
 	}
