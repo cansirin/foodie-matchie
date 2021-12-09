@@ -55,6 +55,7 @@ struct DocuMenuRestaurant: Hashable, Codable {
 	var restaurantId: Int
 	var restaurantName: String
 	var restaurantPhone: String
+	var restaurantWebsite: String
 	var priceRangeNum: Int
 	var	address: Address
 	var cuisines: [String]

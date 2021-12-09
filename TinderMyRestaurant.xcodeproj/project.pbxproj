@@ -19,18 +19,20 @@
 		F7231F432759653C007B27B0 /* SingleRestaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7231F422759653C007B27B0 /* SingleRestaurant.swift */; };
 		F7231F4627598F84007B27B0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F7231F4527598F84007B27B0 /* FirebaseAuth */; };
 		F7231F4827598F84007B27B0 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = F7231F4727598F84007B27B0 /* FirebaseAuthCombine-Community */; };
+		F73ED553276150640014BDFF /* FoodieMatchieApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F73ED551276150640014BDFF /* FoodieMatchieApp.xcdatamodeld */; };
+		F73ED555276151460014BDFF /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73ED554276151460014BDFF /* PersistenceController.swift */; };
 		F751A5E52757400600F50C4F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F751A5E42757400600F50C4F /* LocationManager.swift */; };
 		F751A5E72757403600F50C4F /* LocationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F751A5E62757403600F50C4F /* LocationRequest.swift */; };
 		F751A5E9275740B500F50C4F /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = F751A5E8275740B500F50C4F /* Error.swift */; };
 		F751A5ED2757431500F50C4F /* Restaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F751A5EC2757431500F50C4F /* Restaurants.swift */; };
 		F751A5F22757F56A00F50C4F /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = F751A5F12757F56A00F50C4F /* Loading.swift */; };
-		F751A6072757FE0000F50C4F /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = F751A6062757FE0000F50C4F /* Login.swift */; };
 		F751A6092758048700F50C4F /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F751A6082758048700F50C4F /* SessionStore.swift */; };
 		F751A60B2758083D00F50C4F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F751A60A2758083D00F50C4F /* Settings.swift */; };
 		F751A60F27580C2400F50C4F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F751A60E27580C2400F50C4F /* GoogleService-Info.plist */; };
 		F751A61127581A3F00F50C4F /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F751A61027581A3F00F50C4F /* LoginPage.swift */; };
 		F751A61327581A6500F50C4F /* KeyboardResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F751A61227581A6500F50C4F /* KeyboardResponder.swift */; };
 		F751A6162758298600F50C4F /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = F751A6152758298600F50C4F /* SDWebImageSwiftUI */; };
+		F7611D6F2761784B0032D656 /* LikedRestaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7611D6E2761784B0032D656 /* LikedRestaurants.swift */; };
 		F7C316C42756FB090051290B /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C316C32756FB090051290B /* TopView.swift */; };
 		F7C316C62756FE470051290B /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C316C52756FE470051290B /* LocationViewModel.swift */; };
 		F7C316CA275706900051290B /* RestaurantFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C316C9275706900051290B /* RestaurantFetcher.swift */; };
@@ -51,17 +53,19 @@
 		F717B8122756D129005D1DFD /* types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = types.swift; sourceTree = "<group>"; };
 		F7231F3E27587F34007B27B0 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		F7231F422759653C007B27B0 /* SingleRestaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRestaurant.swift; sourceTree = "<group>"; };
+		F73ED552276150640014BDFF /* FoodieMatchieApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodieMatchieApp.xcdatamodel; sourceTree = "<group>"; };
+		F73ED554276151460014BDFF /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		F751A5E42757400600F50C4F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		F751A5E62757403600F50C4F /* LocationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRequest.swift; sourceTree = "<group>"; };
 		F751A5E8275740B500F50C4F /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		F751A5EC2757431500F50C4F /* Restaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurants.swift; sourceTree = "<group>"; };
 		F751A5F12757F56A00F50C4F /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
-		F751A6062757FE0000F50C4F /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		F751A6082758048700F50C4F /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		F751A60A2758083D00F50C4F /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		F751A60E27580C2400F50C4F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F751A61027581A3F00F50C4F /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		F751A61227581A6500F50C4F /* KeyboardResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponder.swift; sourceTree = "<group>"; };
+		F7611D6E2761784B0032D656 /* LikedRestaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedRestaurants.swift; sourceTree = "<group>"; };
 		F7C316C32756FB090051290B /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		F7C316C52756FE470051290B /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		F7C316C9275706900051290B /* RestaurantFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantFetcher.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 				F751A6082758048700F50C4F /* SessionStore.swift */,
 				F751A61227581A6500F50C4F /* KeyboardResponder.swift */,
 				F7231F3E27587F34007B27B0 /* Launch Screen.storyboard */,
+				F73ED554276151460014BDFF /* PersistenceController.swift */,
 			);
 			path = TinderMyRestaurant;
 			sourceTree = "<group>";
@@ -138,13 +143,14 @@
 				F751A5E8275740B500F50C4F /* Error.swift */,
 				F751A5EC2757431500F50C4F /* Restaurants.swift */,
 				F751A5F12757F56A00F50C4F /* Loading.swift */,
-				F751A6062757FE0000F50C4F /* Login.swift */,
 				F751A60A2758083D00F50C4F /* Settings.swift */,
 				F751A61027581A3F00F50C4F /* LoginPage.swift */,
 				F7231F422759653C007B27B0 /* SingleRestaurant.swift */,
 				72EAAC9F275E9B780050039F /* SignUp.swift */,
 				72EAACA1275EDDA50050039F /* ForgotPassword.swift */,
 				FCC54E93275EFEBC005848D1 /* MapView.swift */,
+				F73ED551276150640014BDFF /* FoodieMatchieApp.xcdatamodeld */,
+				F7611D6E2761784B0032D656 /* LikedRestaurants.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -235,14 +241,16 @@
 				F717B8112756D04D005D1DFD /* RestaurantCard.swift in Sources */,
 				FCC54E9A27602B21005848D1 /* ColorCodes.swift in Sources */,
 				F7C316C62756FE470051290B /* LocationViewModel.swift in Sources */,
-				F751A6072757FE0000F50C4F /* Login.swift in Sources */,
 				F7C316C42756FB090051290B /* TopView.swift in Sources */,
+				F7611D6F2761784B0032D656 /* LikedRestaurants.swift in Sources */,
 				FCC54E94275EFEBC005848D1 /* MapView.swift in Sources */,
+				F73ED553276150640014BDFF /* FoodieMatchieApp.xcdatamodeld in Sources */,
 				F751A5ED2757431500F50C4F /* Restaurants.swift in Sources */,
 				F751A5E72757403600F50C4F /* LocationRequest.swift in Sources */,
 				F717B8032756D003005D1DFD /* ContentView.swift in Sources */,
 				F751A5E52757400600F50C4F /* LocationManager.swift in Sources */,
 				F751A6092758048700F50C4F /* SessionStore.swift in Sources */,
+				F73ED555276151460014BDFF /* PersistenceController.swift in Sources */,
 				F751A60B2758083D00F50C4F /* Settings.swift in Sources */,
 				F717B8012756D003005D1DFD /* TinderMyRestaurantApp.swift in Sources */,
 				F717B8132756D129005D1DFD /* types.swift in Sources */,
@@ -476,6 +484,19 @@
 			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		F73ED551276150640014BDFF /* FoodieMatchieApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F73ED552276150640014BDFF /* FoodieMatchieApp.xcdatamodel */,
+			);
+			currentVersion = F73ED552276150640014BDFF /* FoodieMatchieApp.xcdatamodel */;
+			path = FoodieMatchieApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F717B7F52756D003005D1DFD /* Project object */;
 }
