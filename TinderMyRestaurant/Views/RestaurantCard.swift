@@ -27,22 +27,22 @@ struct RestaurantCard: View {
 
 				VStack(alignment: .leading, spacing: 10, content: {
 					HStack{ // address of the restaurant
-						Image(systemName: "house.circle").font(.title).foregroundColor(.green)
+						Image(systemName: "house.circle").font(.title).foregroundColor(Color(ColorCodes().fv))
 						Text(restaurant.address.street)
 							.font(.headline).preferredColorScheme(.light)
 					}
 					HStack{ // rating of the restaurant
-						Image(systemName: "star.circle").font(.title).foregroundColor(.green)
+						Image(systemName: "star.circle").font(.title).foregroundColor(Color(ColorCodes().fv))
 						Text("4 star")
 							.font(.headline).preferredColorScheme(.light)
 					}
 					HStack{ // distance to user's location
-						Image(systemName: "figure.walk.circle").font(.title).foregroundColor(.green)
+						Image(systemName: "figure.walk.circle").font(.title).foregroundColor(Color(ColorCodes().fv))
 //						Text(String(format: "%.2f", restaurant.distance * 0.000621371) + " mile ")
 //							.font(.headline).preferredColorScheme(.light)
 					}
 					HStack{ // price tag
-						Image(systemName: "dollarsign.circle").font(.title).foregroundColor(.green)
+						Image(systemName: "dollarsign.circle").font(.title).foregroundColor(Color(ColorCodes().fv))
 						Text("\(restaurant.priceRangeNum)$")
 							.font(.headline).preferredColorScheme(.light)
 						Spacer()

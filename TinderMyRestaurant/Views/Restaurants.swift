@@ -19,12 +19,14 @@ struct Restaurants: View {
 		let dragGesture = DragGesture().updating($translation) { value, state, _ in
 			state = value.translation
 		}
-		let coords = ["latitude": locationManager.lastLocation.latitude,
-									"longitude": locationManager.lastLocation.longitude,
-									"distance": 5]
+        let coords = ["latitude": locationManager.lastLocation.latitude,
+                                            "longitude": locationManager.lastLocation.longitude,
+                                            "distance": 5]
 
 		VStack {
-			TopView(session: session, fetcher: fetcher, locationManager: locationManager)
+            Spacer()
+                .frame(height: 50)
+            TopView(session: session, fetcher: fetcher, locationManager: locationManager)
 			NavigationView {
 				VStack{
 					GeometryReader { geometry in
@@ -65,7 +67,7 @@ struct Restaurants: View {
 									}
 									}.padding(.bottom, 15)
 								}.background(
-                                    LinearGradient(gradient: Gradient(colors: [Color(ColorCodes().drv), Color(ColorCodes().rv)]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                                    LinearGradient(gradient: Gradient(colors: [Color(ColorCodes().drv), Color(ColorCodes().pur)]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
 								)
 							}
 						} else {
@@ -79,6 +81,7 @@ struct Restaurants: View {
 					.statusBar(hidden: true)
 			}
 		}
+        .background(Color(ColorCodes().drv)).ignoresSafeArea()
 	}
 }
 
