@@ -48,7 +48,7 @@ struct LoginPage: View {
                     .padding([.top, .bottom], 30)
                     .shadow(radius: 10.0, x: 20, y: 10)
                 
-                Image(systemName: "person.fill")
+                Image("logo")
                     .resizable()
                     .frame(width: 200, height: 200)
                     .clipShape(Circle())
@@ -102,7 +102,7 @@ struct LoginPage: View {
                 }
             }
             .background(
-                LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
+                LinearGradient(gradient: Gradient(colors: [Color(ColorCodes().mauve), Color(ColorCodes().pur)]), startPoint: .top, endPoint: .bottom)
                     .edgesIgnoringSafeArea(.all))
             
         }
