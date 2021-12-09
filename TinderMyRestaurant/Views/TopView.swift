@@ -19,32 +19,32 @@ struct TopView : View {
 		HStack{
 			Spacer()
 			
-            Text("FoodieMatchie").bold().font(.largeTitle).foregroundColor(.white)
+			Text("FoodieMatchie").bold().font(.largeTitle).foregroundColor(.white)
 
 			Spacer()
 			if(session.session != nil){
-                SettingsIcon(session: session, fetcher: fetcher, locationManager: locationManager)
+				SettingsIcon(session: session, fetcher: fetcher, locationManager: locationManager)
 			} else {
 				LoginIcon(session: session)
 			}
 
-        }.padding().background(Color(ColorCodes().fv))
+		}.padding().background(Color(ColorCodes().fv))
 	}
 }
 
 struct SettingsIcon: View {
 	@State private var isActive = false
-    var session: SessionStore
-    var fetcher: RestaurantFetcher
+	var session: SessionStore
+	var fetcher: RestaurantFetcher
 	var locationManager: LocationManager
-    
+
 	var body: some View {
 		Button(action: {
 			self.isActive.toggle()
 		}) {
 			Image(systemName: "gearshape").resizable().frame(width: 35, height: 35)
 		}.foregroundColor(.gray).sheet(isPresented: $isActive) {
-            Settings(sessionStore: session, fetcher: fetcher, locationManager: locationManager)
+			Settings(sessionStore: session, fetcher: fetcher, locationManager: locationManager)
 		}
 	}
 }

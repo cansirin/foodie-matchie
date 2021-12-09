@@ -3,32 +3,32 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>868002835420-b20b93322qcc1d8bh5pht5kdq3d3vmqs.apps.googleusercontent.com</string>
+	<string>421524200737-7nmdiq99ocjpcrnutkudvcv99957jkh6.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.868002835420-b20b93322qcc1d8bh5pht5kdq3d3vmqs</string>
+	<string>com.googleusercontent.apps.421524200737-7nmdiq99ocjpcrnutkudvcv99957jkh6</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAMfZdsLZ_n2r__ZaT_ggi_Mby5voIdMHE</string>
+	<string>AIzaSyArjsxKAB-m8YKR9MA1vTXctiOdJpGL898</string>
 	<key>GCM_SENDER_ID</key>
-	<string>868002835420</string>
+	<string>421524200737</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>csirin.sfsu.edu.TinderMyRestaurant</string>
 	<key>PROJECT_ID</key>
-	<string>restauranttinder-10b98</string>
+	<string>tinder-my-restaurant</string>
 	<key>STORAGE_BUCKET</key>
-	<string>restauranttinder-10b98.appspot.com</string>
+	<string>tinder-my-restaurant.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:868002835420:ios:fa649822c59c9995547d19</string>
+	<string>1:421524200737:ios:de05eefb75c4cc86db3260</string>
 </dict>
 </plist>

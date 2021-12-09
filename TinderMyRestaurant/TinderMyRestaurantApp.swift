@@ -11,15 +11,13 @@ import CoreData
 
 @main
 struct TinderMyRestaurantApp: App {
-	@StateObject private var persistenceController = PersistenceController()
-
 	init() {
 		FirebaseApp.configure()
 	}
-
+	
 	var body: some Scene {
 		WindowGroup {
-			ContentView().environment(\.managedObjectContext, persistenceController.container.viewContext)
+			ContentView()
 		}
 	}
 }

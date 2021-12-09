@@ -11,7 +11,7 @@ struct Settings: View {
 	@ObservedObject var sessionStore: SessionStore
 	@ObservedObject var fetcher: RestaurantFetcher
 	@ObservedObject var locationManager: LocationManager
-	@State var sliderValue: Double = 0
+	@State var sliderValue: Double = 5
 	@State private var selection: String? = nil
 
 	var body: some View {
@@ -29,7 +29,7 @@ struct Settings: View {
 				Button(action: {
 					self.selection = "likedRestaurants"
 				}, label: {
-					NavigationLink(destination: LikedRestaurants(), tag: "likedRestaurants", selection: $selection) {
+					NavigationLink(destination: LikedRestaurants(session: sessionStore), tag: "likedRestaurants", selection: $selection) {
 						Text("Liked restaurants ❤️")
 					}
 				}).foregroundColor(Color.white).padding(10)
