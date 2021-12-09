@@ -20,21 +20,42 @@ struct ForgotPassword : View {
         if(loading){
             ActivityIndicator().foregroundColor(.green)
         } else {
-            VStack {
-                TextField("Email", text: $email).autocapitalization(.none)
+            VStack(){
+                Text("Forgot Password")
+                                    .font(.largeTitle).foregroundColor(Color.white)
+                                    .padding([.top,.bottom], 20)
+                                    .shadow(radius: 10.0, x: 20, y: 10)
+                VStack(alignment: .leading, spacing: 15) {
+                    TextField("Email", text: self.$email)
+                        .autocapitalization(.none)
+                        .padding()
+                        .background(Color.forgotP)
+                        .cornerRadius(20.0)
+                        .shadow(radius: 10.0, x: 20, y: 10)
+                }.padding([.leading, .trailing], 27.5)
                 Button(action: { reset() ;self.showingAlert.toggle()}) {
-                    Text("Reset your password")
-                    
-                }.alert(isPresented: self.$showingAlert){
+                    Text("Reset Password")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(width: 300, height: 50)
+                        .background(Color(ColorCodes().drv))
+                        .cornerRadius(15.0)
+                        .shadow(radius: 10.0, x: 20, y: 10)
+                }
+                .alert(isPresented: self.$showingAlert){
                     Alert(title: Text("Alert"), message: Text("Reset password link has been sent"))
                 }
-                
+                .padding(.top, 50)
+                Spacer()
             }
-            .padding()
-
+            .background(
+                LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
+                    .edgesIgnoringSafeArea(.all))
         }
         
     }
+    
     func reset(){
         if self.email != ""{
             Auth.auth().sendPasswordReset(withEmail: self.email){
@@ -52,3 +73,8 @@ struct ForgotPassword : View {
     }
 }
 
+extension Color {
+    static var forgotP: Color {
+        return Color(red: 220.0/255.0, green: 230.0/255.0, blue: 230.0/255.0, opacity: 1.0)
+    }
+}
